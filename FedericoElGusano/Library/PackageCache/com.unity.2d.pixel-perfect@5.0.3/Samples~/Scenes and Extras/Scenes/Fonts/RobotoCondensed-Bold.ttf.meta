@@ -1,20 +1,3 @@
-fileFormatVersion: 2
-guid: b20f139c373fa4555a05cdd0036dfa44
-timeCreated: 1475687636
-licenseType: Store
-TrueTypeFontImporter:
-  serializedVersion: 4
-  fontSize: 16
-  forceTextureCase: -2
-  characterSpacing: 0
-  characterPadding: 1
-  includeFontData: 1
-  fontNames:
-  - Roboto Condensed
-  fallbackFontReferences: []
-  customCharacters: 
-  fontRenderingMode: 0
-  ascentCalculationMode: 1
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
+version https://git-lfs.github.com/spec/v1
+oid sha256:4b9085a38866e1c66279aacb5c3aeb1e7e6552ed17c90dd58fb3d8186e7d7bae
+size 441

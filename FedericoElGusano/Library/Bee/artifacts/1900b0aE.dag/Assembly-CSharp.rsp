@@ -374,6 +374,7 @@
 -analyzer:"D:/Programas/2022.3.9f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"D:/Programas/2022.3.9f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 "Assets/Character/CharacterMovement.cs"
+"Assets/Scripts/ChatacterMovement.cs"
 "Assets/Scripts/MovePlayer.cs"
 "Assets/Scripts/Parallax.cs"
 "Assets/Scripts/Parallax1.cs"

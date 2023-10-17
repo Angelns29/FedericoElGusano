@@ -62,6 +62,7 @@
     <Compile Include="Assets\Scripts\Parallax.cs" />
     <Compile Include="Assets\Scripts\Parallax1.cs" />
     <Compile Include="Assets\Character\CharacterMovement.cs" />
+    <Compile Include="Assets\Scripts\ChatacterMovement.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
