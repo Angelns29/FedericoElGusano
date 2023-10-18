@@ -40,7 +40,7 @@ public class ChatacterMovement : MonoBehaviour
         _rb.velocity = new Vector2(velocidadX, _rb.velocity.y);
         if (InputMovimiento > 0)
         {
-            gameObject.transform.localScale = new Vector3(1, 1, 1);
+            gameObject.transform.localScale = new Vector2(1, 1);
         }
        
     }
