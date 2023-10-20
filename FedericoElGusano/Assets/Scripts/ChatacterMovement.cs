@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class ChatacterMovement : MonoBehaviour
 {
     private Animator _animator;
     private Rigidbody2D _rb;
+    [SerializeField]private TilemapCollider2D _collider;
     private SpriteRenderer _sr;
     public float jumpForce = 10f;
     private float InputMovimiento;
@@ -26,9 +28,6 @@ public class ChatacterMovement : MonoBehaviour
         MovimientoHorizontal();
         Salto();
       
-       
-
-
     }
     void MovimientoHorizontal()
     {
@@ -46,16 +45,25 @@ public class ChatacterMovement : MonoBehaviour
     }
     void Salto()
     {
-        if (Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
-        {
-            _rb.velocity = Vector2.zero;
-            _animator.SetBool("isRunning", false);
-        }
+       
         //Salto
         if (Input.GetKeyDown(KeyCode.Space))
         {
             _rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+
+            Invoke(nameof(ActivateCollider), 0.5f); // Esto activará el collider después de 0.5 segundos.
+        }
+        //Desactiva collider 
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            _collider.enabled = false;
         }
     }
 
+    void ActivateCollider()
+    {
+        _collider.enabled = true;
+    }
+        
+    
 }
