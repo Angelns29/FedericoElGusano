@@ -38,6 +38,7 @@ public class UIManager : MonoBehaviour
     public void ReturnMenu()
     {
         SceneManager.LoadScene(0);
+        Time.timeScale = 1.0f;
     }
     public void DisableStart()
     {
