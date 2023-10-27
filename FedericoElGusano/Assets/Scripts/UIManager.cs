@@ -22,7 +22,7 @@ public class UIManager : MonoBehaviour
     {
         
     }
-   
+    #region pause
     public void ShowPauseMenu()
     {
         pauseButton.SetActive(false);
@@ -40,6 +40,7 @@ public class UIManager : MonoBehaviour
         SceneManager.LoadScene(0);
         Time.timeScale = 1.0f;
     }
+    #endregion
     public void DisableStart()
     {
         startMenu.SetActive(false);
