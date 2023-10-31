@@ -37,7 +37,7 @@ public class UIManager : MonoBehaviour
     }
     public void ReturnMenu()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
         Time.timeScale = 1.0f;
     }
     #endregion

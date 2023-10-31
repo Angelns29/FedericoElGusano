@@ -63,6 +63,7 @@
     <Compile Include="Assets\Scripts\Parallax.cs" />
     <Compile Include="Assets\Scripts\ChangeColorText.cs" />
     <Compile Include="Assets\Scripts\Parallax1.cs" />
+    <Compile Include="Assets\WaitIntro.cs" />
     <Compile Include="Assets\Scripts\UIManager.cs" />
     <Compile Include="Assets\Scripts\ChatacterMovement.cs" />
   </ItemGroup>
