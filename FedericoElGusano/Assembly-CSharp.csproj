@@ -61,6 +61,8 @@
     <Compile Include="Assets\Scripts\VisualPlayer.cs" />
     <Compile Include="Assets\Scripts\MovePlayer.cs" />
     <Compile Include="Assets\Scripts\Parallax.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\ParallaxMovement.cs" />
     <Compile Include="Assets\Scripts\Parallax1.cs" />
     <Compile Include="Assets\Character\CharacterMovement.cs" />
     <Compile Include="Assets\Scripts\UIManager.cs" />
