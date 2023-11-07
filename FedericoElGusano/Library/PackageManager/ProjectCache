@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638334070112006076
-    m_Hash: 4204546768
+      ticks: 638349645223859572
+    m_Hash: 920716818
   m_LockFileStatus:
     m_FilePath: D:/Projecto/Github/FedericoElGusano/FedericoElGusano/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638334070112031444
-    m_Hash: 180398246
+      ticks: 638349645223867822
+    m_Hash: 2437376704
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
