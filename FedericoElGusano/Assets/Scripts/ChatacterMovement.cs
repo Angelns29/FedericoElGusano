@@ -12,20 +12,17 @@ public class ChatacterMovement : MonoBehaviour
     private BoxCollider2D _collider;
     private SpriteRenderer _sr;
     public float jumpForce = 10f;
-    private float InputMovimiento;
     public float velocidad;
+    private GameObject _platform;
    
-
-
-
     void Awake()
     {
         _animator = gameObject.GetComponent<Animator>();
         _rb = GetComponent<Rigidbody2D>();
         _sr = GetComponent<SpriteRenderer>();
 
-        //_platform = GameObject.Find("Col*");
-        //_collider = _platform.GetComponent<BoxCollider2D>();
+        _platform = GameObject.Find("Col*");
+        _collider = _platform.GetComponent<BoxCollider2D>();
 
     }
 
@@ -65,6 +62,14 @@ public class ChatacterMovement : MonoBehaviour
     //{
     //    _collider.enabled = true;
     //}
-        
-    
+    void CambioPlataforma()
+    {
+        //Desactiva collider 
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            _collider.enabled = false;
+        }
+    }
+
+
 }
