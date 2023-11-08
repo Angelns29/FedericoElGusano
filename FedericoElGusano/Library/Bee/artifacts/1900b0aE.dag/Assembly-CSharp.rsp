@@ -383,6 +383,7 @@
 "Assets/Scripts/ParallaxMovement.cs"
 "Assets/Scripts/UIManager.cs"
 "Assets/Scripts/VisualPlayer.cs"
+"Assets/WaitIntro.cs"
 -langversion:9.0
 
 /deterministic
