@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-D:\Samuel Arteaga\ProyectoUnity\FedericoElGusano
-=======
 D:\Samuel Arteaga\ProyectoUnity\FedericoElGusanoUpdate\FedericoElGusano
->>>>>>> devSamuel

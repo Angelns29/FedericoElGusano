@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7060315602642492865}
   m_Layer: 0
   m_Name: Col2
-  m_TagString: Untagged
+  m_TagString: Plataforma2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
