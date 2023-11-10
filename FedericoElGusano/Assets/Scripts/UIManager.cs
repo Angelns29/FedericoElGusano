@@ -5,16 +5,24 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
+    public static UIManager instance;
     [Header("Start")]
     [SerializeField] private GameObject startMenu;
     [Header("Pause")]
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject pauseButton;
+    [Header("GameOver")]
+    [SerializeField] private GameObject gameoverMenu;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else Destroy(gameObject);
     }
 
     // Update is called once per frame
@@ -44,6 +52,15 @@ public class UIManager : MonoBehaviour
     public void DisableStart()
     {
         startMenu.SetActive(false);
+    }
+    public void SetGameOver()
+    {
+        pauseButton.SetActive(false);
+        gameoverMenu.SetActive(true);
+    }
+    public void Restart()
+    {
+        SceneManager.LoadScene(1);
     }
     public void ExitGame()
     {

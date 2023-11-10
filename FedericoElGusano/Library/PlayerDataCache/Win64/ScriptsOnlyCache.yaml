@@ -2,14 +2,19 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - ChatacterMovement
+    - GameManager
     - MovePlayer
     - Parallax
+    - ParallaxManager
+    - ParallaxMovement
+    - RockScript
+    - ScriptRana
     - UIManager
     - VisualPlayer
+    - WaitIntro
     Unity.2D.Animation.Editor.dll:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.Animation.Runtime.dll:
-    - UnityEngine.U2D.Animation.BufferManager
     - UnityEngine.U2D.Animation.SpriteSkinComposite
     - UnityEngine.U2D.Animation.SpriteSkinUpdateHelper
     Unity.2D.IK.Editor.dll:
@@ -91,12 +96,30 @@ ScriptsOnlyBuild:
   methodsToPreserve:
   - assembly: Assembly-CSharp
     fullTypeName: UIManager
+    methodName: ExitGame
+  - assembly: Assembly-CSharp
+    fullTypeName: UIManager
+    methodName: ReturnMenu
+  - assembly: Assembly-CSharp
+    fullTypeName: UIManager
     methodName: DisableStart
+  - assembly: Assembly-CSharp
+    fullTypeName: UIManager
+    methodName: ReturnMenu
+  - assembly: Assembly-CSharp
+    fullTypeName: UIManager
+    methodName: Restart
+  - assembly: Assembly-CSharp
+    fullTypeName: UIManager
+    methodName: Resume
+  - assembly: Assembly-CSharp
+    fullTypeName: UIManager
+    methodName: ShowPauseMenu
   - assembly: Assembly-CSharp
     fullTypeName: UIManager
     methodName: ExitGame
   sceneClasses:
-    Assets/Scenes/SampleScene.unity:
+    Assets/Scenes/Intro.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -111,54 +134,111 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 49
       Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 17378}
+    - Class: 114
+      Script: {instanceID: 17904}
+    - Class: 114
+      Script: {instanceID: 18152}
+    - Class: 114
+      Script: {instanceID: 19776}
+    - Class: 114
+      Script: {instanceID: 20094}
+    - Class: 114
+      Script: {instanceID: 21008}
+    - Class: 114
+      Script: {instanceID: 21712}
+    - Class: 114
+      Script: {instanceID: 22326}
+    - Class: 114
+      Script: {instanceID: 24368}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    - Class: 328
+      Script: {instanceID: 0}
+    - Class: 329
+      Script: {instanceID: 0}
+    Assets/Scenes/SampleScene.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
     - Class: 50
       Script: {instanceID: 0}
     - Class: 61
       Script: {instanceID: 0}
-    - Class: 66
-      Script: {instanceID: 0}
     - Class: 70
       Script: {instanceID: 0}
+    - Class: 74
+      Script: {instanceID: 0}
     - Class: 81
+      Script: {instanceID: 0}
+    - Class: 91
       Script: {instanceID: 0}
     - Class: 95
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 632}
+      Script: {instanceID: 634}
     - Class: 114
-      Script: {instanceID: 1616}
+      Script: {instanceID: 16662}
     - Class: 114
-      Script: {instanceID: 2328}
+      Script: {instanceID: 16696}
     - Class: 114
-      Script: {instanceID: 2854}
+      Script: {instanceID: 17008}
     - Class: 114
-      Script: {instanceID: 3102}
+      Script: {instanceID: 17904}
     - Class: 114
-      Script: {instanceID: 3448}
+      Script: {instanceID: 18152}
     - Class: 114
-      Script: {instanceID: 3868}
+      Script: {instanceID: 18498}
     - Class: 114
-      Script: {instanceID: 4720}
+      Script: {instanceID: 18774}
     - Class: 114
-      Script: {instanceID: 5038}
+      Script: {instanceID: 18922}
     - Class: 114
-      Script: {instanceID: 5446}
+      Script: {instanceID: 18984}
     - Class: 114
-      Script: {instanceID: 5644}
+      Script: {instanceID: 20502}
     - Class: 114
-      Script: {instanceID: 5950}
+      Script: {instanceID: 20686}
     - Class: 114
-      Script: {instanceID: 6654}
+      Script: {instanceID: 20702}
     - Class: 114
-      Script: {instanceID: 6866}
+      Script: {instanceID: 21008}
     - Class: 114
-      Script: {instanceID: 7268}
+      Script: {instanceID: 21712}
     - Class: 114
-      Script: {instanceID: 7902}
+      Script: {instanceID: 21924}
     - Class: 114
-      Script: {instanceID: 8744}
+      Script: {instanceID: 22326}
+    - Class: 114
+      Script: {instanceID: 22960}
+    - Class: 114
+      Script: {instanceID: 23800}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -198,6 +278,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI
     namespaceName: UnityEngine.UI
     className: Image
+  - hash:
+      serializedVersion: 2
+      Hash: c13adf70ec9777b05527d1b32edc4c16
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: RockScript
   - hash:
       serializedVersion: 2
       Hash: 74007bf515c4306e564934b368232bdb
@@ -246,6 +332,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnMouseExitMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: 7e215b45b18352ccc8f6ca5f7f295fe7
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: ScriptRana
   - hash:
       serializedVersion: 2
       Hash: 751e5bae2a317288c2ab58d66687092b
@@ -446,6 +538,12 @@ ScriptsOnlyBuild:
     className: Button
   - hash:
       serializedVersion: 2
+      Hash: c13adf70ec9777b05527d1b32edc4c16
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: Obstacle
+  - hash:
+      serializedVersion: 2
       Hash: 751e5bae2a317288c2ab58d66687092b
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
@@ -488,6 +586,12 @@ ScriptsOnlyBuild:
     className: VariablesAsset
   - hash:
       serializedVersion: 2
+      Hash: e181a946f2739c198b3389f6d2fb0966
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: ParallaxManager
+  - hash:
+      serializedVersion: 2
       Hash: f6831ac80ec81c5d5b370c0ed0fee997
     assemblyName: Unity.VisualScripting.Flow
     namespaceName: Unity.VisualScripting
@@ -516,6 +620,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI
     namespaceName: UnityEngine.EventSystems
     className: BaseInput
+  - hash:
+      serializedVersion: 2
+      Hash: 233c3cba79dcf79ef06a072b3bef238f
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: ParallaxMovement
   - hash:
       serializedVersion: 2
       Hash: 751e5bae2a317288c2ab58d66687092b
@@ -674,7 +784,7 @@ ScriptsOnlyBuild:
     className: BufferManager
   - hash:
       serializedVersion: 2
-      Hash: 999201b54f33d39bc5e9b8e18a86698f
+      Hash: c33b31c0559e23a473e2f8d044e5bcd6
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: UIManager
@@ -708,6 +818,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnEndDragMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: a6da1b2b26e83958d320b33b0d82357f
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: GameManager
   - hash:
       serializedVersion: 2
       Hash: 751e5bae2a317288c2ab58d66687092b
@@ -980,7 +1096,7 @@ ScriptsOnlyBuild:
     className: RuleTile
   - hash:
       serializedVersion: 2
-      Hash: 986e7c147e676b45c75b0f9b62da8963
+      Hash: bdbe039132f3987c7b50602db663101c
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: ChatacterMovement
@@ -990,12 +1106,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnTriggerEnter2DMessageListener
-  - hash:
-      serializedVersion: 2
-      Hash: 751e5bae2a317288c2ab58d66687092b
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: CharacterMovement
   - hash:
       serializedVersion: 2
       Hash: 751e5bae2a317288c2ab58d66687092b
@@ -1166,6 +1276,12 @@ ScriptsOnlyBuild:
     className: SpriteLibrarySourceAsset
   - hash:
       serializedVersion: 2
+      Hash: 751e5bae2a317288c2ab58d66687092b
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: WaitIntro
+  - hash:
+      serializedVersion: 2
       Hash: afe1800287c9574079eab3fea2622416
     assemblyName: Unity.Timeline
     namespaceName: UnityEngine.Timeline
@@ -1214,5 +1330,6 @@ ScriptsOnlyBuild:
     className: UnityOnSliderValueChangedMessageListener
   platform: 19
   scenePathNames:
+  - Assets/Scenes/Intro.unity
   - Assets/Scenes/SampleScene.unity
-  playerPath: D:/Samuel Arteaga/ProyectoUnity/Prueba/FedericoElGusano.exe
+  playerPath: C:/Users/angel/Desktop/BuildFederico/FedericoElGusano.exe
