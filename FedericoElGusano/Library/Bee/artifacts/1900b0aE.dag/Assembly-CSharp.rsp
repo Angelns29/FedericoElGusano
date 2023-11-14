@@ -377,9 +377,12 @@
 "Assets/Scripts/ChatacterMovement.cs"
 "Assets/Scripts/GameManager.cs"
 "Assets/Scripts/MovePlayer.cs"
+"Assets/Scripts/Obstacle.cs"
 "Assets/Scripts/Parallax.cs"
 "Assets/Scripts/Parallax1.cs"
+"Assets/Scripts/ParallaxManager.cs"
 "Assets/Scripts/ParallaxMovement.cs"
+"Assets/Scripts/RockScript.cs"
 "Assets/Scripts/UIManager.cs"
 "Assets/Scripts/VisualPlayer.cs"
 -langversion:9.0
