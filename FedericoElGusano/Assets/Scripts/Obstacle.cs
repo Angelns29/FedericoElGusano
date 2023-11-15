@@ -8,6 +8,7 @@ public class Obstacle : MonoBehaviour
 
     public void Movement(Rigidbody2D rb2d)
     {
-        rb2d.velocity = new Vector2(speed * -1,0);
-    }   
+        rb2d.velocity = new Vector2(speed * -1, 0);
+    }
 }
+

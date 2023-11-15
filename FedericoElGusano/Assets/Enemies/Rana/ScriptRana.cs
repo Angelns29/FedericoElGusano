@@ -20,17 +20,19 @@ public class ScriptRana : Obstacle
     // Update is called once per frame
     void Update()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.up);
+        RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x,transform.position.y + 1), Vector2.up);
+        
 
         if(hit.collider != null)
         {
+            Debug.Log(hit.collider.name);
             if (hit.collider.gameObject.CompareTag("Player"))
             {
                 tongue.SetActive(true);
                 _anim.SetBool("isAbove", true);
                 Debug.Log(_anim.GetBool("isAbove"));
                 StartCoroutine(WaitForDeath());
-                UIManager.instance.SetGameOver();
+                //UIManager.instance.SetGameOver();
             }
             
             
