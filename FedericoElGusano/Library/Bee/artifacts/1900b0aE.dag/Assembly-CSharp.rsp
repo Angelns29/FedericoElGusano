@@ -373,15 +373,19 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2022.3.9f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2022.3.9f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
-"Assets/Enemies/rana/ScriptRana.cs"
+"Assets/Enemies/Rana/ScriptRana.cs"
 "Assets/Scripts/ChatacterMovement.cs"
 "Assets/Scripts/GameManager.cs"
 "Assets/Scripts/MovePlayer.cs"
+"Assets/Scripts/Obstacle.cs"
 "Assets/Scripts/Parallax.cs"
 "Assets/Scripts/Parallax1.cs"
+"Assets/Scripts/ParallaxManager.cs"
 "Assets/Scripts/ParallaxMovement.cs"
+"Assets/Scripts/RockScript.cs"
 "Assets/Scripts/UIManager.cs"
 "Assets/Scripts/VisualPlayer.cs"
+"Assets/Scripts/WaitIntro.cs"
 -langversion:9.0
 
 /deterministic

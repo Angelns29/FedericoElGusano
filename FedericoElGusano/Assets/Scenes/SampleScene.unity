@@ -1667,10 +1667,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1220501051246832513, guid: 9ee7edf3ec8aae449920b77f9feb95c4, type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1881201849457643552, guid: 9ee7edf3ec8aae449920b77f9feb95c4, type: 3}
       propertyPath: m_Name
       value: Rana
