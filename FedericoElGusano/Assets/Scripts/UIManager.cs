@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -13,6 +16,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject pauseButton;
     [Header("GameOver")]
     [SerializeField] private GameObject gameoverMenu;
+    [Header("Settings")]
+    [SerializeField] private GameObject settingsMenu;
+    [SerializeField] private TMP_Dropdown settingsDropdown;
+    public AudioMixer audioMixer;
 
     // Start is called before the first frame update
     void Awake()
@@ -23,6 +30,8 @@ public class UIManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
         else Destroy(gameObject);
+
+        Time.timeScale = 0f;
     }
 
     // Update is called once per frame
@@ -46,12 +55,14 @@ public class UIManager : MonoBehaviour
     public void ReturnMenu()
     {
         SceneManager.LoadScene(1);
-        Time.timeScale = 1.0f;
+        startMenu.SetActive(true);
+        Time.timeScale = 0f;
     }
     #endregion
     public void DisableStart()
     {
         startMenu.SetActive(false);
+        Time.timeScale = 1f;
     }
     public void SetGameOver()
     {
@@ -70,4 +81,30 @@ public class UIManager : MonoBehaviour
         #endif
         
     }
+    #region settings
+    public void ChangeToSettings()
+    {
+        startMenu.SetActive(false);
+        settingsMenu.SetActive(true);
+    }
+    public void ChangeToSettingsFromPause()
+    {
+        pauseMenu.SetActive(false);
+        settingsMenu.SetActive(true);
+    }
+    public void SetVolume(float volume)
+    {
+        audioMixer.SetFloat("volume",volume);
+    }
+    public void SetQuality()
+    {
+        QualitySettings.SetQualityLevel(settingsDropdown.value);
+        PlayerPrefs.SetInt("Quality", settingsDropdown.value);
+
+    }
+    public void SetFullscreen (bool isFullScreen)
+    {
+        Screen.fullScreen = isFullScreen;
+    }
+    #endregion
 }
