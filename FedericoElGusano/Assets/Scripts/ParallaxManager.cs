@@ -26,7 +26,7 @@ public class ParallaxManager : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(2);
-            _speed += 0.1f;
+            //_speed += 0.1f;
         }
     } 
    

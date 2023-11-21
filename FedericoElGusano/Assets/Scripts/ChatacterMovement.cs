@@ -15,6 +15,9 @@ public class ChatacterMovement : MonoBehaviour
     public float velocidad;
     private GameObject _platform;
 
+    [SerializeField]private Transform _groundCheck;
+    public LayerMask _groundLayer;
+
     void Awake()
     {
         _animator = gameObject.GetComponent<Animator>();
@@ -42,22 +45,19 @@ public class ChatacterMovement : MonoBehaviour
     void Salto()
     {
         //Salto
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
         {
-            _rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
-            Invoke(nameof(ActivateCollider), 0.5f); // Esto activará el collider después de 0.5 segundos.
+         
+                _rb.velocity = new Vector3(0, 10, 0);
 
+            //_rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+            DesactivaCollider();
+            Invoke(nameof(ActivateCollider), 0.5f); // Esto activará el collider después de 0.5 segundos
         }
-        //if (Input.GetKeyDown(KeyCode.DownArrow))
-        //{
-        //   DesactivaCollider();
-        //}
-    }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag=="Plataforma2"&& Input.GetKeyDown(KeyCode.DownArrow))
+        if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             DesactivaCollider();
+            Invoke(nameof(ActivateCollider), 0.6f);
         }
     }
     void ActivateCollider()
@@ -67,5 +67,9 @@ public class ChatacterMovement : MonoBehaviour
     void DesactivaCollider()
     {
         _collider.enabled = false;
+    }
+    private bool IsGrounded()
+    {
+        return Physics2D.OverlapCircle(_groundCheck.position, 0.2f, _groundLayer);
     }
 }

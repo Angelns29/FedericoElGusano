@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638350546722083130
-    m_Hash: 920716818
+      ticks: 638361752022734493
+    m_Hash: 4204546768
   m_LockFileStatus:
     m_FilePath: D:/Projecto/Github/FedericoElGusano/FedericoElGusano/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638350546722083130
-    m_Hash: 2437376704
+      ticks: 638361752022756140
+    m_Hash: 180398246
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
@@ -4355,6 +4355,7 @@ m_ResolvedPackages:
     - 2.2.1
     - 2.3.0-exp.1
     - 2.3.0-pre.3
+    - 2.4.0-exp.2
     compatible:
     - 1.2.4
     - 1.3.1
@@ -4567,11 +4568,13 @@ m_ResolvedPackages:
     - 1.8.8
     - 1.8.9
     - 1.8.10
+    - 1.8.11
     compatible:
     - 1.8.8
     - 1.8.9
     - 1.8.10
-    recommended: 1.8.10
+    - 1.8.11
+    recommended: 1.8.11
     deprecated: []
   dependencies:
   - name: com.unity.mathematics

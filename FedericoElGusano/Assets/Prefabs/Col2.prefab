@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6060008965405708906}
   - component: {fileID: 7060315602642492865}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Col2
   m_TagString: Plataforma2
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7810832298868497075}
   - component: {fileID: 7297490364175304225}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: DirtBackgroundTiles_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}

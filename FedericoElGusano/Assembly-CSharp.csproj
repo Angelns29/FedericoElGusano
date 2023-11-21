@@ -68,6 +68,7 @@
     <Compile Include="Assets\Enemies\rana\ScriptRana.cs" />
     <Compile Include="Assets\Scripts\ParallaxMovement.cs" />
     <Compile Include="Assets\Scripts\Parallax1.cs" />
+    <Compile Include="Assets\Scripts\WaitIntro.cs" />
     <Compile Include="Assets\Scripts\UIManager.cs" />
     <Compile Include="Assets\Scripts\ChatacterMovement.cs" />
   </ItemGroup>

@@ -5,11 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Plataforma2
+  - Enemy
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - groundLayers
   - Water
   - UI
   - 
