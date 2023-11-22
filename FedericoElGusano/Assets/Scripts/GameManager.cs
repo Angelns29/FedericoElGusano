@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public float velocidad = 2f;
     private float positionVerticalPlataforma2 = -5.2f;
-    private float positionVerticalPlataforma = -4.5f;
+    private float positionVerticalPlataforma = -1.5f;
     private float posicionHorizontalPlataforma2 = 15f;
     private float posicionHorizontalPlataforma = 16f;
     public GameObject col;
