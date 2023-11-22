@@ -72,6 +72,10 @@ public class UIManager : MonoBehaviour
     public void Restart()
     {
         SceneManager.LoadScene(1);
+        startMenu.SetActive(true);
+        pauseMenu.SetActive(false);
+        gameoverMenu.SetActive(false);
+        settingsMenu.SetActive(false);
     }
     public void ExitGame()
     {
