@@ -582,6 +582,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 171631759}
   m_CullTransparentMesh: 1
+--- !u!1 &185172156 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4753173394440525209, guid: 69e04eac907f64d4dadf3d66cd1d82ca, type: 3}
+  m_PrefabInstance: {fileID: 9006593716609794676}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &185172163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185172156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87cbaeeb146c4bd46a066e1b1c7bbcb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _paralaxSpeed: 2
 --- !u!1 &289051230
 GameObject:
   m_ObjectHideFlags: 0
@@ -1972,6 +1990,7 @@ GameObject:
   - component: {fileID: 933027300}
   - component: {fileID: 933027302}
   - component: {fileID: 933027303}
+  - component: {fileID: 933027304}
   m_Layer: 0
   m_Name: Forest TileSet Pixel Art Objects #1 32x32_2
   m_TagString: Untagged
@@ -2040,7 +2059,7 @@ Transform:
   m_GameObject: {fileID: 933027297}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.22, y: -1.12, z: 0}
+  m_LocalPosition: {x: 1.22, y: -1.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2055,7 +2074,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 933027297}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 230442c3666345041b4a227ba4198b15, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -2131,6 +2150,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+--- !u!114 &933027304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 933027297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87cbaeeb146c4bd46a066e1b1c7bbcb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _paralaxSpeed: 2
 --- !u!1 &996389554
 GameObject:
   m_ObjectHideFlags: 0
@@ -4207,6 +4239,7 @@ GameObject:
   - component: {fileID: 1445742109}
   - component: {fileID: 1445742111}
   - component: {fileID: 1445742112}
+  - component: {fileID: 1445742113}
   m_Layer: 0
   m_Name: Forest TileSet Pixel Art Objects #1 32x32_4
   m_TagString: Untagged
@@ -4275,7 +4308,7 @@ Transform:
   m_GameObject: {fileID: 1445742106}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.57, y: -1.09, z: 0}
+  m_LocalPosition: {x: 9.39, y: -0.79, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4290,7 +4323,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1445742106}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 230442c3666345041b4a227ba4198b15, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -4366,6 +4399,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+--- !u!114 &1445742113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1445742106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87cbaeeb146c4bd46a066e1b1c7bbcb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _paralaxSpeed: 2
 --- !u!1 &1474955910
 GameObject:
   m_ObjectHideFlags: 0
@@ -6442,6 +6488,7 @@ GameObject:
   - component: {fileID: 1968160443}
   - component: {fileID: 1968160445}
   - component: {fileID: 1968160446}
+  - component: {fileID: 1968160447}
   m_Layer: 0
   m_Name: TipoRoca1
   m_TagString: Untagged
@@ -6510,7 +6557,7 @@ Transform:
   m_GameObject: {fileID: 1968160440}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 30.15, y: -1.45, z: 0}
+  m_LocalPosition: {x: 30.15, y: -0.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6525,7 +6572,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1968160440}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 230442c3666345041b4a227ba4198b15, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -6601,6 +6648,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+--- !u!114 &1968160447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1968160440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87cbaeeb146c4bd46a066e1b1c7bbcb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _paralaxSpeed: 2
 --- !u!1 &1974214650
 GameObject:
   m_ObjectHideFlags: 0
@@ -10601,13 +10661,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4160865296152644877, guid: 69e04eac907f64d4dadf3d66cd1d82ca, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 230442c3666345041b4a227ba4198b15, type: 2}
     - target: {fileID: 4707037087314436726, guid: 69e04eac907f64d4dadf3d66cd1d82ca, type: 3}
       propertyPath: m_LocalPosition.x
       value: 22.541409
       objectReference: {fileID: 0}
     - target: {fileID: 4707037087314436726, guid: 69e04eac907f64d4dadf3d66cd1d82ca, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.15
+      value: -0.33
       objectReference: {fileID: 0}
     - target: {fileID: 4707037087314436726, guid: 69e04eac907f64d4dadf3d66cd1d82ca, type: 3}
       propertyPath: m_LocalPosition.z
@@ -10648,7 +10712,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4753173394440525209, guid: 69e04eac907f64d4dadf3d66cd1d82ca, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 185172163}
   m_SourcePrefab: {fileID: 100100000, guid: 69e04eac907f64d4dadf3d66cd1d82ca, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
