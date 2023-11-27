@@ -3515,6 +3515,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpForce: 8
   velocidad: 5
+  _bullet: {fileID: 0}
   _groundCheck: {fileID: 1210853633}
   _groundLayer:
     serializedVersion: 2

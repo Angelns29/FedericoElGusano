@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.Intrinsics;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -14,6 +15,7 @@ public class ChatacterMovement : MonoBehaviour
     public float jumpForce = 10f;
     public float velocidad;
     private GameObject _platform;
+    public Transform _bullet;
 
     [SerializeField]private Transform _groundCheck;
     public LayerMask _groundLayer;
@@ -71,5 +73,25 @@ public class ChatacterMovement : MonoBehaviour
     private bool IsGrounded()
     {
         return Physics2D.OverlapCircle(_groundCheck.position, 0.2f, _groundLayer);
+    }
+    private void PlayerShoot()
+    {
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            Bullet bullet = BulletPool.Instance.GetBullet();
+            bullet.transform.position = _bullet.transform.position;
+            bullet.transform.rotation = _bullet.rotation;
+
+            if (bullet != null)
+            {
+                bullet.gameObject.SetActive(true);
+                bullet.DirectionBullet();
+                //StartCoroutine(CanShoot());
+            }
+            else
+            {
+                Debug.Log("El objeto de la pool no tiene el componente Bullet.");
+            }
+        }
     }
 }
