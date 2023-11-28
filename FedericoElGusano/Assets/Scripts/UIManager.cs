@@ -50,12 +50,22 @@ public class UIManager : MonoBehaviour
 
     public void ReturnMenu()
     {
-        gameoverMenu.SetActive(false);
+        
         SceneManager.LoadScene(1);
         startMenu.SetActive(true);
         pauseMenu.SetActive(false);
         settingsMenu.SetActive(false);
         Time.timeScale = 0f;
+        if (gameoverMenu.activeInHierarchy) {
+
+            StartCoroutine(DesactivateGO());
+        }
+
+    }
+    IEnumerator DesactivateGO()
+    {
+        yield return 0;
+        gameoverMenu.SetActive(false);
     }
     #endregion
     public void DisableStart()
@@ -71,11 +81,15 @@ public class UIManager : MonoBehaviour
     }
     public void Restart()
     {
-        gameoverMenu.SetActive(false);
         SceneManager.LoadScene(1);
-        startMenu.SetActive(true);
-        pauseMenu.SetActive(false);
-        settingsMenu.SetActive(false);
+        StartCoroutine(DesactivateGameOverUI());
+    }
+    IEnumerator DesactivateGameOverUI()
+    {
+        yield return 0;
+        gameoverMenu.SetActive(false);
+        pauseButton.SetActive(true);
+        Time.timeScale = 1f;
     }
     public void ExitGame()
     {
