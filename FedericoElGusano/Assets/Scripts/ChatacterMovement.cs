@@ -7,6 +7,10 @@ using UnityEngine.Tilemaps;
 
 public class ChatacterMovement : MonoBehaviour
 {
+    //Bullet
+    [SerializeField] private Transform bulletDirection;
+    public Bullet _bullet;
+
     private Animator _animator;
     private Rigidbody2D _rb;
     GameManager _gameManager;
@@ -15,18 +19,19 @@ public class ChatacterMovement : MonoBehaviour
     public float jumpForce = 10f;
     public float velocidad;
     private GameObject _platform;
-    public Transform _bullet;
 
     [SerializeField]private Transform _groundCheck;
     public LayerMask _groundLayer;
-
+    private void Start()
+    {
+        //PlayerShoot();
+    }
     void Awake()
     {
         _animator = gameObject.GetComponent<Animator>();
         _rb = GetComponent<Rigidbody2D>();
         _sr = GetComponent<SpriteRenderer>();
 
-        //_platform = GameObject.Find("Col*");
         _collider = gameObject.GetComponent<BoxCollider2D>();
 
     }
@@ -35,6 +40,8 @@ public class ChatacterMovement : MonoBehaviour
     {
         MovimientoHorizontal();
         Salto();
+        PlayerShoot();
+
 
     }
     void MovimientoHorizontal()
@@ -80,11 +87,13 @@ public class ChatacterMovement : MonoBehaviour
         {
             Bullet bullet = BulletPool.Instance.GetBullet();
             bullet.transform.position = _bullet.transform.position;
-            bullet.transform.rotation = _bullet.rotation;
+            bullet.transform.rotation = _bullet.transform.rotation;
 
             if (bullet != null)
             {
+               
                 bullet.gameObject.SetActive(true);
+                Debug.Log("se ha activado");
                 bullet.DirectionBullet();
                 //StartCoroutine(CanShoot());
             }

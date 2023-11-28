@@ -25,12 +25,12 @@ public class ScriptRana : Obstacle
 
         if(hit.collider != null)
         {
-            Debug.Log(hit.collider.name);
+    
             if (hit.collider.gameObject.CompareTag("Player"))
             {
                 tongue.SetActive(true);
                 _anim.SetBool("isAbove", true);
-                Debug.Log(_anim.GetBool("isAbove"));
+                
                 StartCoroutine(WaitForDeath());
                 //UIManager.instance.SetGameOver();
             }
