@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Plataforma2
   - Enemy
+  - Obstacle
   layers:
   - Default
   - TransparentFX

@@ -16,4 +16,5 @@ public class RockScript : Obstacle
     {
         Movement(rb2d);
     }
+
 }

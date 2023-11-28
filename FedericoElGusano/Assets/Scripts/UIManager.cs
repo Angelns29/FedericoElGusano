@@ -10,21 +10,21 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
     [Header("Start")]
-    [SerializeField] private GameObject startMenu;
+    [SerializeField] public GameObject startMenu;
     [Header("Pause")]
-    [SerializeField] private GameObject pauseMenu;
-    [SerializeField] private GameObject pauseButton;
+    [SerializeField] public GameObject pauseMenu;
+    [SerializeField] public GameObject pauseButton;
     [Header("GameOver")]
-    [SerializeField] private GameObject gameoverMenu;
+    [SerializeField] public GameObject gameoverMenu;
     [Header("Settings")]
-    [SerializeField] private GameObject settingsMenu;
-    [SerializeField] private TMP_Dropdown settingsDropdown;
+    [SerializeField] public GameObject settingsMenu;
+    [SerializeField] public TMP_Dropdown settingsDropdown;
     public AudioMixer audioMixer;
 
     // Start is called before the first frame update
     void Awake()
     {
-        if (instance == null)
+        if (instance == null) 
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
@@ -34,11 +34,6 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 0f;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     #region pause
     public void ShowPauseMenu()
     {
@@ -52,16 +47,21 @@ public class UIManager : MonoBehaviour
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
     }
+
     public void ReturnMenu()
     {
+        gameoverMenu.SetActive(false);
         SceneManager.LoadScene(1);
         startMenu.SetActive(true);
+        pauseMenu.SetActive(false);
+        settingsMenu.SetActive(false);
         Time.timeScale = 0f;
     }
     #endregion
     public void DisableStart()
     {
         startMenu.SetActive(false);
+        pauseButton.SetActive(true);
         Time.timeScale = 1f;
     }
     public void SetGameOver()
@@ -71,10 +71,10 @@ public class UIManager : MonoBehaviour
     }
     public void Restart()
     {
+        gameoverMenu.SetActive(false);
         SceneManager.LoadScene(1);
         startMenu.SetActive(true);
         pauseMenu.SetActive(false);
-        gameoverMenu.SetActive(false);
         settingsMenu.SetActive(false);
     }
     public void ExitGame()
