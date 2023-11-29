@@ -7,10 +7,9 @@ using UnityEngine.Tilemaps;
 
 public class ChatacterMovement : MonoBehaviour
 {
-    //Bullet
-    [SerializeField] private Transform bulletDirection;
+    
+    [SerializeField] public Transform bulletDirection;
     public Bullet _bullet;
-
     private Animator _animator;
     private Rigidbody2D _rb;
     GameManager _gameManager;
@@ -86,14 +85,14 @@ public class ChatacterMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Z))
         {
             Bullet bullet = BulletPool.Instance.GetBullet();
-            bullet.transform.position = _bullet.transform.position;
-            bullet.transform.rotation = _bullet.transform.rotation;
 
             if (bullet != null)
             {
-               
+                bullet.transform.position = transform.position;
+                bullet.transform.rotation = transform.rotation;
+                
                 bullet.gameObject.SetActive(true);
-                Debug.Log("se ha activado");
+
                 bullet.DirectionBullet();
                 //StartCoroutine(CanShoot());
             }

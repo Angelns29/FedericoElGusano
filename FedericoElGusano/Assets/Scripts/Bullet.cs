@@ -25,12 +25,12 @@ public class Bullet : MonoBehaviour
     {
         DirectionBullet();
     }
-    //IEnumerator DestroyBulletAfeterTime()
-    //{
-    //    yield return new WaitForSeconds(1f);
-    //    gameObject.SetActive(false);
-    //    Debug.Log("se ha desactivado la bala");
-    //}
+    IEnumerator DestroyBulletAfeterTime()
+    {
+        yield return new WaitForSeconds(1f);
+        gameObject.SetActive(false);
+        Debug.Log("se ha desactivado la bala");
+    }
     public void DirectionBullet()
     {
         Vector3 movimiento = Vector3.right * bulletSpeed * Time.deltaTime;
@@ -42,14 +42,14 @@ public class Bullet : MonoBehaviour
         {
             AnimateExplotion();
             gameObject.SetActive(false);
-            Debug.Log("Pared");
+           
         }
     }
     private void AnimateExplotion()
     {
-        //this.animatorController.SetBool("Exploded", true);
+        animatorController.SetBool("isExploted", true);
         Debug.Log("se ha activado la animacion");
         rb.velocity = Vector3.zero;
-        //StartCoroutine(DestroyBulletAfeterTime());
+        StartCoroutine(DestroyBulletAfeterTime());
     }
 }

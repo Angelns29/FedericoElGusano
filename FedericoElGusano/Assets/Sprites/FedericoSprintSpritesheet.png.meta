@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a93d5b99843333e4dbb0125877e378fb
+guid: 48533943a661eae4fa0690f5c1f01cae
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 25
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -123,169 +123,127 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BULLET_0
+      name: FedericoSprintSpritesheet_0
       rect:
         serializedVersion: 2
-        x: 7
-        y: 192
-        width: 144
-        height: 166
+        x: 62
+        y: 176
+        width: 36
+        height: 62
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4e49f6907414c95458be43824ee64488
-      internalID: -809063698
+      spriteID: f7cbb129fb7a2874196928e5f1452666
+      internalID: -1195720330
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BULLET_1
+      name: FedericoSprintSpritesheet_1
       rect:
         serializedVersion: 2
-        x: 153
-        y: 192
-        width: 103
-        height: 157
+        x: 121
+        y: 176
+        width: 34
+        height: 62
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 24e45eb8ee4d4e34e8193a90693fe1c2
-      internalID: -1151111628
+      spriteID: aa8b9e3bd16a60842929baf53fe4295b
+      internalID: 222265950
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BULLET_2
+      name: FedericoSprintSpritesheet_2
       rect:
         serializedVersion: 2
-        x: 288
-        y: 191
-        width: 146
-        height: 152
+        x: 188
+        y: 176
+        width: 31
+        height: 61
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0fa55a8995779944aa28531b2060d91b
-      internalID: 567213041
+      spriteID: 1c5560ff82aa64b468e750085aa45ce6
+      internalID: -22168866
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BULLET_3
+      name: FedericoSprintSpritesheet_3
       rect:
         serializedVersion: 2
-        x: 442
-        y: 186
-        width: 208
-        height: 182
+        x: 236
+        y: 175
+        width: 35
+        height: 61
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6a2eab1e4fa138a4ead4d282f79e58cc
-      internalID: -1046792397
+      spriteID: aa30279e586940d44a67dd1ea686f66f
+      internalID: 1773616057
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BULLET_4
+      name: FedericoSprintSpritesheet_4
       rect:
         serializedVersion: 2
-        x: 17
-        y: 13
-        width: 130
-        height: 169
+        x: 293
+        y: 175
+        width: 33
+        height: 61
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9b10857b9f3ab2b47b7480978accdfeb
-      internalID: -401941705
+      spriteID: 8366d5c9607258a4098d816fa20382a2
+      internalID: 1502467828
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BULLET_5
+      name: FedericoSprintSpritesheet_5
       rect:
         serializedVersion: 2
-        x: 154
-        y: 13
-        width: 147
-        height: 170
+        x: 347
+        y: 177
+        width: 31
+        height: 61
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 81a7239ed3f2ba446a3d0d56a6eb24b1
-      internalID: -534231599
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BULLET_6
-      rect:
-        serializedVersion: 2
-        x: 314
-        y: 17
-        width: 147
-        height: 160
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d9ac7170730dd8b4b9584f028ffd0ade
-      internalID: -1394619663
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BULLET_7
-      rect:
-        serializedVersion: 2
-        x: 476
-        y: 8
-        width: 163
-        height: 172
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 16a17774504c7764785aa7726da66357
-      internalID: -534563883
+      spriteID: 675ef970cb9e1fa4c980b99f40074102
+      internalID: -889612534
       vertices: []
       indices: 
       edges: []
@@ -301,14 +259,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      BULLET_0: -809063698
-      BULLET_1: -1151111628
-      BULLET_2: 567213041
-      BULLET_3: -1046792397
-      BULLET_4: -401941705
-      BULLET_5: -534231599
-      BULLET_6: -1394619663
-      BULLET_7: -534563883
+      FedericoSprintSpritesheet_0: -1195720330
+      FedericoSprintSpritesheet_1: 222265950
+      FedericoSprintSpritesheet_2: -22168866
+      FedericoSprintSpritesheet_3: 1773616057
+      FedericoSprintSpritesheet_4: 1502467828
+      FedericoSprintSpritesheet_5: -889612534
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
