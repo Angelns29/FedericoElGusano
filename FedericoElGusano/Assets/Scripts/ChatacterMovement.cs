@@ -21,6 +21,7 @@ public class ChatacterMovement : MonoBehaviour
 
     [SerializeField]private Transform _groundCheck;
     public LayerMask _groundLayer;
+    public UIManager _uiManager;
     private void Start()
     {
         //PlayerShoot();
