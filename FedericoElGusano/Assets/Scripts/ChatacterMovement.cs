@@ -55,26 +55,27 @@ public class ChatacterMovement : MonoBehaviour
         //Salto
         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
         {
-         
-                _rb.velocity = new Vector3(0, 10, 0);
+
+            _rb.velocity = new Vector3(0, 10, 0);
 
             //_rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
-            DesactivaCollider();
-            Invoke(nameof(ActivateCollider), 0.5f); // Esto activará el collider después de 0.5 segundos
+            ActivateTrigger();
+            Invoke(nameof(DesactivateTrigger), 0.6f); // Esto activará el collider después de 0.5 segundos
         }
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            DesactivaCollider();
-            Invoke(nameof(ActivateCollider), 0.6f);
+            ActivateTrigger();
+            Invoke(nameof(DesactivateTrigger), 0.6f);
         }
     }
-    void ActivateCollider()
+    void ActivateTrigger()
     {
-        _collider.enabled = true;
+
+        _collider.isTrigger = true;
     }
-    void DesactivaCollider()
+    void DesactivateTrigger()
     {
-        _collider.enabled = false;
+        _collider.isTrigger = false;
     }
     private bool IsGrounded()
     {
