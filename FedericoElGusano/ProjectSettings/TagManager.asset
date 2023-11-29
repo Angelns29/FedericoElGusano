@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Plataforma2
+  - Enemy
+  - Event
   layers:
   - Default
   - TransparentFX
