@@ -15,6 +15,7 @@ public class ChatacterMovement : MonoBehaviour
     public float jumpForce = 10f;
     public float velocidad;
     private GameObject _platform;
+    private AudioManagerScript _audioManager;
 
     [SerializeField]private Transform _groundCheck;
     public LayerMask _groundLayer;
@@ -27,6 +28,7 @@ public class ChatacterMovement : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _sr = GetComponent<SpriteRenderer>();
         _collider = gameObject.GetComponent<BoxCollider2D>();
+        _audioManager = AudioManagerScript.instance;
 
     }
     // Update is called once per frame
@@ -72,6 +74,7 @@ public class ChatacterMovement : MonoBehaviour
         {
             StartCoroutine(WaitForDeath());
             _uiManager.SetGameOver();
+            _audioManager.StartGameOverTheme();
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -80,6 +83,8 @@ public class ChatacterMovement : MonoBehaviour
         {
             StartCoroutine(WaitForDeath());
             _uiManager.SetGameOver();
+            _audioManager.StartGameOverTheme();
+
         }
     }
     IEnumerator WaitForDeath()
