@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
+using Unity.Burst.Intrinsics;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class ChatacterMovement : MonoBehaviour
 {
+    
+    [SerializeField] public Transform bulletDirection;
+    public Bullet _bullet;
     private Animator _animator;
     private Rigidbody2D _rb;
     private GameManager _gameManager;
@@ -18,14 +21,17 @@ public class ChatacterMovement : MonoBehaviour
 
     [SerializeField]private Transform _groundCheck;
     public LayerMask _groundLayer;
-    public  UIManager _uiManager;
-
+    private void Start()
+    {
+        //PlayerShoot();
+    }
     void Awake()
     {
         _uiManager = gameObject.GetComponent<UIManager>();
         _animator = gameObject.GetComponent<Animator>();
         _rb = GetComponent<Rigidbody2D>();
         _sr = GetComponent<SpriteRenderer>();
+
         _collider = gameObject.GetComponent<BoxCollider2D>();
 
     }
@@ -33,6 +39,9 @@ public class ChatacterMovement : MonoBehaviour
     void Update()
     {
         Salto();
+        PlayerShoot();
+
+
     }
     void Salto()
     {
@@ -44,7 +53,7 @@ public class ChatacterMovement : MonoBehaviour
 
             //_rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
             ActivateTrigger();
-            Invoke(nameof(DesactivateTrigger), 0.6f); // Esto activará el collider después de 0.5 segundos
+            Invoke(nameof(DesactivateTrigger), 0.6f); // Esto activarï¿½ el collider despuï¿½s de 0.5 segundos
         }
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
@@ -65,26 +74,26 @@ public class ChatacterMovement : MonoBehaviour
     {
         return Physics2D.OverlapCircle(_groundCheck.position, 0.2f, _groundLayer);
     }
+    private void PlayerShoot()
+    {
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            Bullet bullet = BulletPool.Instance.GetBullet();
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Obstacle") || collision.CompareTag("Enemy"))
-        {
-            StartCoroutine(WaitForDeath());
-            _uiManager.SetGameOver();
+            if (bullet != null)
+            {
+                bullet.transform.position = transform.position;
+                bullet.transform.rotation = transform.rotation;
+                
+                bullet.gameObject.SetActive(true);
+
+                bullet.DirectionBullet();
+                //StartCoroutine(CanShoot());
+            }
+            else
+            {
+                Debug.Log("El objeto de la pool no tiene el componente Bullet.");
+            }
         }
-    }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Obstacle") || collision.gameObject.CompareTag("Enemy"))
-        {
-            StartCoroutine(WaitForDeath());
-            _uiManager.SetGameOver();
-        }
-    }
-    IEnumerator WaitForDeath()
-    {
-        yield return new WaitForSeconds(0.05f);
-        Time.timeScale = 0;
     }
 }
