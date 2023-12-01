@@ -1288,7 +1288,7 @@ Transform:
   m_GameObject: {fileID: 688880153}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.06534458, w: 0.99786276}
-  m_LocalPosition: {x: -11.4, y: 2.19, z: 0}
+  m_LocalPosition: {x: -10.12, y: 2.14, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1982,7 +1982,7 @@ Transform:
   m_GameObject: {fileID: 933027297}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20.78, y: -1.12, z: 0}
+  m_LocalPosition: {x: 20.78, y: -0.33, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4260,7 +4260,7 @@ Transform:
   m_GameObject: {fileID: 1445742106}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.39, y: -0.79, z: 0}
+  m_LocalPosition: {x: 9.41, y: -0.28, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6805,7 +6805,7 @@ Transform:
   m_GameObject: {fileID: 1968160440}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 30.15, y: -0.4, z: 0}
+  m_LocalPosition: {x: 30.15, y: -0.33, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9444,7 +9444,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2910666394939613876}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8316956189538905833}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: ChangeToShop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!224 &4210905809858044714
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10667,7 +10679,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!222 &8244082737164674587
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10712,6 +10724,7 @@ MonoBehaviour:
   gameoverMenu: {fileID: 4150593232132682386}
   settingsMenu: {fileID: 600803251}
   settingsDropdown: {fileID: 775045996}
+  parallax: {fileID: 603822477}
   audioMixer: {fileID: 24100000, guid: 69916afb3ad0c3246b546f6e07d5f31f, type: 2}
 --- !u!1 &8419277383062044462
 GameObject:
@@ -11105,6 +11118,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1185620946474040230, guid: 69e04eac907f64d4dadf3d66cd1d82ca, type: 3}
+      propertyPath: uiManager
+      value: 
+      objectReference: {fileID: 8316956189538905833}
+    - target: {fileID: 1185620946474040230, guid: 69e04eac907f64d4dadf3d66cd1d82ca, type: 3}
+      propertyPath: uimanager
+      value: 
+      objectReference: {fileID: 8316956189538905833}
     - target: {fileID: 4160865296152644877, guid: 69e04eac907f64d4dadf3d66cd1d82ca, type: 3}
       propertyPath: m_Material
       value: 

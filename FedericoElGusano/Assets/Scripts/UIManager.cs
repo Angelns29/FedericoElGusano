@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    public static UIManager instance;
+    //public static UIManager instance;
     [Header("Start")]
     [SerializeField] public GameObject startMenu;
     [Header("Pause")]
@@ -19,21 +19,33 @@ public class UIManager : MonoBehaviour
     [Header("Settings")]
     [SerializeField] public GameObject settingsMenu;
     [SerializeField] public TMP_Dropdown settingsDropdown;
+    [SerializeField] public GameObject parallax;
     public AudioMixer audioMixer;
 
     // Start is called before the first frame update
     void Awake()
     {
-        if (instance == null) 
+        /*if (instance == null) 
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        else Destroy(gameObject);
+        else Destroy(gameObject);*/
 
         Time.timeScale = 0f;
     }
 
+    public void ChangeToShop()
+    {
+        SceneManager.LoadScene(2);
+        StartCoroutine(DesactivateParallax());
+        
+    }
+    IEnumerator DesactivateParallax()
+    {
+        yield return new WaitForSeconds(2);
+        parallax.SetActive(false);
+    }
     #region pause
     public void ShowPauseMenu()
     {
@@ -47,7 +59,18 @@ public class UIManager : MonoBehaviour
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
     }
-
+    public void ReturnFromShop()
+    {
+        SceneManager.LoadScene(1);
+        StartCoroutine(ActivateParallax());
+        
+        
+    }
+    IEnumerator ActivateParallax()
+    {
+        yield return new WaitForSeconds(2);
+        parallax.SetActive(true);
+    }
     public void ReturnMenu()
     {
         

@@ -7,14 +7,13 @@ public class ScriptRana : Obstacle
     private Rigidbody2D rb2d;
     private Animator _anim;
     public GameObject tongue;
-    private UIManager uiManager;
+    public UIManager uimanager;
 
     // Start is called before the first frame update
     void Start()
     {
         rb2d= GetComponent<Rigidbody2D>();
         _anim= GetComponent<Animator>();
-        uiManager = UIManager.instance;
         tongue.SetActive(false);
     }
 
@@ -30,7 +29,7 @@ public class ScriptRana : Obstacle
                 tongue.SetActive(true);
                 _anim.SetBool("isAbove", true);
                 StartCoroutine(WaitForDeath());
-                uiManager.SetGameOver();
+                uimanager.SetGameOver();
             }
         }
         Movement(rb2d);
