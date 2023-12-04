@@ -23,7 +23,7 @@ public class ChatacterMovement : MonoBehaviour
 
     void Awake()
     {
-        _uiManager = gameObject.GetComponent<UIManager>();
+        _uiManager = UIManager.instance;
         _animator = gameObject.GetComponent<Animator>();
         _rb = GetComponent<Rigidbody2D>();
         _sr = GetComponent<SpriteRenderer>();
@@ -74,7 +74,7 @@ public class ChatacterMovement : MonoBehaviour
         {
             StartCoroutine(WaitForDeath());
             _uiManager.SetGameOver();
-            _audioManager.StartGameOverTheme();
+            _audioManager.StopMusic();
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -83,7 +83,7 @@ public class ChatacterMovement : MonoBehaviour
         {
             StartCoroutine(WaitForDeath());
             _uiManager.SetGameOver();
-            _audioManager.StartGameOverTheme();
+            _audioManager.StopMusic();
 
         }
     }

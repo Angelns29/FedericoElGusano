@@ -32,7 +32,8 @@ public class ScriptRana : Obstacle
                 _anim.SetBool("isAbove", true);
                 StartCoroutine(WaitForDeath());
                 uiManager.SetGameOver();
-                _audioManager.StartGameOverTheme();
+                //StartCoroutine(Music());
+                _audioManager.PlaySFX(_audioManager.gameOverTheme);
 
             }
         }

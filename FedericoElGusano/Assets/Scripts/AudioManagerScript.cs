@@ -15,10 +15,7 @@ public class AudioManagerScript : MonoBehaviour
     public AudioClip gameTheme;
     public AudioClip gameOverTheme;
     public AudioClip attack;
-    public AudioClip death;
     public AudioClip jump;
-    public AudioClip bombSound;
-    public AudioClip enemy;
 
 
     void Awake()
@@ -30,12 +27,13 @@ public class AudioManagerScript : MonoBehaviour
 
         }
         else Destroy(gameObject);
-        musicSource.volume = 0.5f;
+
+        musicSource.volume = 0.35f;
+        sfxSource.volume = 0.35f;
     }
 
     void Start()
     {
-        musicSource.volume = 0.35f;
         musicSource.clip = menuTheme;
         musicSource.Play();
     }
@@ -43,21 +41,22 @@ public class AudioManagerScript : MonoBehaviour
     {
         
         musicSource.Stop();
-        musicSource.volume = 0.35f;
         musicSource.clip = gameTheme;
         musicSource.Play();
     }
     public void StartMenuTheme()
     {
         musicSource.Stop();
-        musicSource.volume = 0.35f;
         musicSource.clip = menuTheme;
         musicSource.Play();
     }
-    public void StartGameOverTheme()
+    public void StopMusic()
     {
         musicSource.Stop();
-        musicSource.volume = 0.35f;
+    }
+    public void StartGameOverTheme()
+    {
+        sfxSource.Stop();
         musicSource.clip = gameOverTheme;
         musicSource.Play();
     }
