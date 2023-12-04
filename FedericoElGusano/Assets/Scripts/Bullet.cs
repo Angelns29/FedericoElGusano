@@ -11,11 +11,6 @@ public class Bullet : MonoBehaviour
     private float bulletSpeed = 5f;
     private Rigidbody2D rb;
 
-    // Start is called before the first frame update
-    //void Start()
-    //{
-
-    //}
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -29,7 +24,7 @@ public class Bullet : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         gameObject.SetActive(false);
-        Debug.Log("se ha desactivado la bala");
+      
     }
     public void DirectionBullet()
     {
@@ -47,8 +42,8 @@ public class Bullet : MonoBehaviour
     }
     private void AnimateExplotion()
     {
-        animatorController.SetBool("isExploted", true);
-        Debug.Log("se ha activado la animacion");
+        //Debug.Log("se ha activado la animacion");
+        //animatorController.SetBool("isExploted", true);
         rb.velocity = Vector3.zero;
         StartCoroutine(DestroyBulletAfeterTime());
     }

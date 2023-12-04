@@ -8,11 +8,7 @@ public class BulletPool : MonoBehaviour
     public Bullet bulletprefab;
     private int bulletsize = 5;
     private List<Bullet> bullets = new List<Bullet>();
-    // Start is called before the first frame update
-    //void Start()
-    //{
-        
-    //}
+   
     void Awake()
     {
         if (Instance == null)
@@ -20,11 +16,9 @@ public class BulletPool : MonoBehaviour
             Instance = this;
         }
         InicializePool();
-
     }
     private void InicializePool()
     {
-
         for (int i = 0; i < bulletsize; i++)
         {
             Bullet bullet = Instantiate(bulletprefab);
@@ -42,6 +36,5 @@ public class BulletPool : MonoBehaviour
             }
         }
         return null;
-
     }
 }
