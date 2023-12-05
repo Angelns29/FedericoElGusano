@@ -31,32 +31,50 @@ public class AudioManagerScript : MonoBehaviour
         musicSource.volume = 0.35f;
         sfxSource.volume = 0.35f;
     }
-
     void Start()
     {
         musicSource.clip = menuTheme;
         musicSource.Play();
     }
+
     public void StartGame()
     {
-        
-        musicSource.Stop();
+        if (musicSource.isPlaying)
+        {
+            musicSource.Stop();
+        }
+
         musicSource.clip = gameTheme;
-        musicSource.Play();
-    }
-    public void StartMenuTheme()
-    {
-        musicSource.Stop();
-        musicSource.clip = menuTheme;
         musicSource.Play();
     }
     public void StopMusic()
     {
         musicSource.Stop();
     }
+    public void StartMenuTheme()
+    {
+        if (sfxSource.isPlaying)
+        {
+            sfxSource.Stop();
+        }
+        if (musicSource.isPlaying)
+        {
+            musicSource.Stop();
+        }
+        musicSource.clip = menuTheme;
+        musicSource.Play();
+    }
+
     public void StartGameOverTheme()
     {
-        sfxSource.Stop();
+        if (sfxSource.isPlaying)
+        {
+            sfxSource.Stop();
+        }
+        if (musicSource.isPlaying)
+        {
+            musicSource.Stop();
+        }
         musicSource.clip = gameOverTheme;
         musicSource.Play();
     }
