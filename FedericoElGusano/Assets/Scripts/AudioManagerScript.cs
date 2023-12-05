@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class AudioManagerScript : MonoBehaviour
 {
-    [DoNotSerialize]public static AudioManagerScript instance;
+    [DoNotSerialize] public static AudioManagerScript instance;
     [Header("------------Audio Source --------------")]
-    [SerializeField]AudioSource musicSource;
+    [SerializeField] AudioSource musicSource;
     [SerializeField] AudioSource sfxSource;
 
     [Header("------------Audio Clips -------------")]
@@ -27,12 +27,12 @@ public class AudioManagerScript : MonoBehaviour
 
         }
         else Destroy(gameObject);
-
         musicSource.volume = 0.35f;
-        sfxSource.volume = 0.35f;
+
     }
     void Start()
     {
+        musicSource.volume = 0.35f;
         musicSource.clip = menuTheme;
         musicSource.Play();
     }
@@ -78,7 +78,8 @@ public class AudioManagerScript : MonoBehaviour
         musicSource.clip = gameOverTheme;
         musicSource.Play();
     }
-    public void PlaySFX(AudioClip audio) {
+    public void PlaySFX(AudioClip audio)
+    {
         sfxSource.PlayOneShot(audio);
     }
 }
