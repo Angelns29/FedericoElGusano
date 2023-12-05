@@ -23,12 +23,11 @@ public class UIManager : MonoBehaviour
     public Slider sfxSlider;
     public AudioSource musicSource;
     public AudioSource sfxSource;
-    public GameObject parallax;
 
     // Start is called before the first frame update
     void Awake()
     {
-        if (instance == null) 
+        if (instance == null)
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
@@ -36,20 +35,9 @@ public class UIManager : MonoBehaviour
         else Destroy(gameObject);
 
         Time.timeScale = 0f;
+
         musicSlider.value = musicSource.volume;
         sfxSlider.value = sfxSource.volume;
-    }
-
-    public void ChangeToShop()
-    {
-        SceneManager.LoadScene(2);
-        StartCoroutine(DesactivateParallax());
-        
-    }
-    IEnumerator DesactivateParallax()
-    {
-        yield return new WaitForSeconds(2);
-        parallax.SetActive(false);
     }
     #region pause
     public void ShowPauseMenu()
@@ -64,27 +52,17 @@ public class UIManager : MonoBehaviour
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
     }
-    public void ReturnFromShop()
-    {
-        SceneManager.LoadScene(1);
-        StartCoroutine(ActivateParallax());
-        
-        
-    }
-    IEnumerator ActivateParallax()
-    {
-        yield return new WaitForSeconds(2);
-        parallax.SetActive(true);
-    }
+
     public void ReturnMenu()
     {
-        
+
         SceneManager.LoadScene(1);
         startMenu.SetActive(true);
         pauseMenu.SetActive(false);
         settingsMenu.SetActive(false);
         Time.timeScale = 0f;
-        if (gameoverMenu.activeInHierarchy) {
+        if (gameoverMenu.activeInHierarchy)
+        {
 
             StartCoroutine(DesactivateGO());
         }
@@ -122,10 +100,10 @@ public class UIManager : MonoBehaviour
     public void ExitGame()
     {
         Application.Quit();
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
-        #endif
-        
+#endif
+
     }
     #region settings
     public void ChangeToSettings()
@@ -152,7 +130,7 @@ public class UIManager : MonoBehaviour
         PlayerPrefs.SetInt("Quality", settingsDropdown.value);
 
     }
-    public void SetFullscreen (bool isFullScreen)
+    public void SetFullscreen(bool isFullScreen)
     {
         Screen.fullScreen = isFullScreen;
     }
