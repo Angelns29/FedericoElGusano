@@ -9,12 +9,24 @@ public class ShopManagerScript : MonoBehaviour
 {
     [SerializeField]
     internal Shop shop = new Shop();
-    private string file = "shop_items.data";
+    internal Inventory inventory = new Inventory();
+    private string fileShop = "shop_items.data";
+    private string fileinventory = "inventory.data";
     public Text coinsTxt;
 
     public void Start()
     {
-        try { shop = Persistence.Load(file, shop); }
+        try { inventory = Persistence.Load(fileinventory, inventory); }
+        catch
+        {
+            inventory.coins = 0;
+            inventory.armor = 0;
+            inventory.weapon = 0;
+            inventory.charge = 0;
+            Persistence.Save(inventory, fileinventory);
+        }
+
+        try { shop = Persistence.Load(fileShop, shop); }
         catch
         {
             shop.shopItems = new ShopObject[10];
@@ -28,7 +40,7 @@ public class ShopManagerScript : MonoBehaviour
             shop.shopItems[7] = new ShopObject(8, 350, true);
             shop.shopItems[8] = new ShopObject(9, 800, true);
             shop.coins = 1000;
-            Persistence.Save(shop,file);
+            Persistence.Save(shop,fileShop);
         }
         coinsTxt.text = "COINS:" + shop.coins.ToString();
 
@@ -44,19 +56,39 @@ public class ShopManagerScript : MonoBehaviour
         if (shop.coins >= shop.shopItems[item.itemID].price && !shop.shopItems[item.itemID].bought && !shop.shopItems[item.itemID].locked)
         {
             Unlock(item);
+            SetItem(item.itemID, inventory);
             shop.coins -= shop.shopItems[item.itemID].price;
-
             shop.shopItems[item.itemID].bought = true;
 
             coinsTxt.text = "COINS: " + shop.coins.ToString();
             item.boughtTxt.text = "SOLD";
-            Persistence.Save(shop, file);
+            Persistence.Save(inventory, fileinventory);
+            Persistence.Save(shop, fileShop);
         }
     }
 
     public void Unlock(ButtonInfo item)
     {
         if(item.itemID < shop.shopItems.Length)shop.shopItems[item.itemID+1].locked = false;
+    }
+
+    public void SetItem(int id, Inventory inventory)
+    {
+        switch (id)
+        {
+            case 0:
+            case 1:
+            case 2: inventory.armor++;
+                break;
+            case 3:
+            case 4:
+            case 5: inventory.weapon++;
+                break;
+            case 6:
+            case 7:
+            case 8: inventory.charge++;
+                break;
+        }
     }
    
 }
