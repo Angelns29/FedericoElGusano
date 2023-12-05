@@ -13,14 +13,16 @@ public class UIManager : MonoBehaviour
     [SerializeField] public GameObject startMenu;
     [Header("Pause")]
     [SerializeField] public GameObject pauseMenu;
-    [SerializeField] public GameObject pauseButton;
+    public GameObject pauseButton;
     [Header("GameOver")]
     [SerializeField] public GameObject gameoverMenu;
     [Header("Settings")]
     [SerializeField] public GameObject settingsMenu;
-    [SerializeField] public TMP_Dropdown settingsDropdown;
-    [SerializeField] public GameObject parallax;
-    public AudioMixer audioMixer;
+    public TMP_Dropdown settingsDropdown;
+    public Slider musicSlider;
+    public Slider sfxSlider;
+    public AudioSource musicSource;
+    public AudioSource sfxSource;
 
     // Start is called before the first frame update
     void Awake()
@@ -33,6 +35,8 @@ public class UIManager : MonoBehaviour
         else Destroy(gameObject);*/
 
         Time.timeScale = 0f;
+        musicSlider.value = musicSource.volume;
+        sfxSlider.value = sfxSource.volume;
     }
 
     public void ChangeToShop()
@@ -135,7 +139,11 @@ public class UIManager : MonoBehaviour
     }
     public void SetVolume(float volume)
     {
-        audioMixer.SetFloat("volume",volume);
+        musicSource.volume = volume;
+    }
+    public void SetVolumeSounds(float volume)
+    {
+        sfxSource.volume = volume;
     }
     public void SetQuality()
     {

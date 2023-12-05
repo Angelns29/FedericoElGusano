@@ -18,6 +18,7 @@ public class ChatacterMovement : MonoBehaviour
     public float jumpForce = 10f;
     public float velocidad;
     private GameObject _platform;
+    private AudioManagerScript _audioManager;
 
     [SerializeField]private Transform _groundCheck;
     public LayerMask _groundLayer;
@@ -28,12 +29,13 @@ public class ChatacterMovement : MonoBehaviour
     }
     void Awake()
     {
-        _uiManager = gameObject.GetComponent<UIManager>();
+        _uiManager = UIManager.instance;
         _animator = gameObject.GetComponent<Animator>();
         _rb = GetComponent<Rigidbody2D>();
         _sr = GetComponent<SpriteRenderer>();
 
         _collider = gameObject.GetComponent<BoxCollider2D>();
+        _audioManager = AudioManagerScript.instance;
 
     }
     // Update is called once per frame
@@ -96,5 +98,29 @@ public class ChatacterMovement : MonoBehaviour
                 Debug.Log("El objeto de la pool no tiene el componente Bullet.");
             }
         }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Obstacle") || collision.CompareTag("Enemy"))
+        {
+            StartCoroutine(WaitForDeath());
+            _uiManager.SetGameOver();
+            _audioManager.StopMusic();
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Obstacle") || collision.gameObject.CompareTag("Enemy"))
+        {
+            StartCoroutine(WaitForDeath());
+            _uiManager.SetGameOver();
+            _audioManager.StopMusic();
+
+        }
+    }
+    IEnumerator WaitForDeath()
+    {
+        yield return new WaitForSeconds(0.05f);
+        Time.timeScale = 0;
     }
 }

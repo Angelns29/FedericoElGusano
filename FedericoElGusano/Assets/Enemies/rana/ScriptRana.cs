@@ -7,13 +7,15 @@ public class ScriptRana : Obstacle
     private Rigidbody2D rb2d;
     private Animator _anim;
     public GameObject tongue;
-    public UIManager uimanager;
-
+    private UIManager uiManager;
+    private AudioManagerScript _audioManager;
     // Start is called before the first frame update
     void Start()
     {
         rb2d= GetComponent<Rigidbody2D>();
         _anim= GetComponent<Animator>();
+        uiManager = UIManager.instance;
+        _audioManager = AudioManagerScript.instance;
         tongue.SetActive(false);
     }
 
@@ -39,5 +41,6 @@ public class ScriptRana : Obstacle
     {
         yield return new WaitForSeconds(0.05f);
         Time.timeScale = 0;
+        _audioManager.StartGameOverTheme();
     }
 }
