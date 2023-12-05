@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    //public static UIManager instance;
+    public static UIManager instance;
     [Header("Start")]
     [SerializeField] public GameObject startMenu;
     [Header("Pause")]
@@ -23,16 +23,17 @@ public class UIManager : MonoBehaviour
     public Slider sfxSlider;
     public AudioSource musicSource;
     public AudioSource sfxSource;
+    public GameObject parallax;
 
     // Start is called before the first frame update
     void Awake()
     {
-        /*if (instance == null) 
+        if (instance == null) 
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        else Destroy(gameObject);*/
+        else Destroy(gameObject);
 
         Time.timeScale = 0f;
         musicSlider.value = musicSource.volume;

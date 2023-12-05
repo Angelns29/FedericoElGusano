@@ -31,7 +31,7 @@ public class ScriptRana : Obstacle
                 tongue.SetActive(true);
                 _anim.SetBool("isAbove", true);
                 StartCoroutine(WaitForDeath());
-                uimanager.SetGameOver();
+                uiManager.SetGameOver();
             }
         }
         Movement(rb2d);
