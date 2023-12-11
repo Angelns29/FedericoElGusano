@@ -1,72 +1,73 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Burst.Intrinsics;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class ChatacterMovement : MonoBehaviour
 {
-    
-    [SerializeField] public Transform bulletDirection;
-    public Bullet _bullet;
     private Animator _animator;
     private Rigidbody2D _rb;
-    private GameManager _gameManager;
     private BoxCollider2D _collider;
     private SpriteRenderer _sr;
-    public float jumpForce = 10f;
-    public float velocidad;
     private GameObject _platform;
     private AudioManagerScript _audioManager;
 
+    [Header("Jump")]
+    public float jumpForce;
+
+    [Header("Bullet")]
+    [SerializeField] public Transform bulletDirection;
+    public Bullet _bullet;
+
+    [Header("GroundCheck")]
     [SerializeField]private Transform _groundCheck;
     public LayerMask _groundLayer;
-    public UIManager _uiManager;
-    private void Start()
-    {
-        //PlayerShoot();
-    }
+    private UIManager _uiManager;
+    private bool _isGroundedDown;
+
     void Awake()
     {
         _uiManager = UIManager.instance;
         _animator = gameObject.GetComponent<Animator>();
         _rb = GetComponent<Rigidbody2D>();
         _sr = GetComponent<SpriteRenderer>();
-
         _collider = gameObject.GetComponent<BoxCollider2D>();
         _audioManager = AudioManagerScript.instance;
-
     }
+
     // Update is called once per frame
     void Update()
     {
         Salto();
         PlayerShoot();
-
-
     }
     void Salto()
     {
-        //Salto
         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
         {
-         
-                _rb.velocity = new Vector3(0, 10, 0);
-
-            //_rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+            _rb.velocity = new Vector3(0, jumpForce, 0);
             ActivateTrigger();
-            Invoke(nameof(DesactivateTrigger), 0.6f); // Esto activar� el collider despu�s de 0.5 segundos
+            Invoke(nameof(DesactivateTrigger), 0.6f);
+            StartCoroutine(JumpGravity());
+            _rb.gravityScale = 1;
         }
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        if (Input.GetKeyDown(KeyCode.DownArrow) && IsGrounded() && _isGroundedDown==false)
         {
+            if (_rb.gravityScale != 1) _rb.gravityScale = 1;
             ActivateTrigger();
             Invoke(nameof(DesactivateTrigger), 0.6f);
         }
     }
+    IEnumerator JumpGravity()
+    {
+        yield return new WaitForSeconds(0.7f);
+        _rb.gravityScale = 3;
+    }
     void ActivateTrigger()
     {
-
         _collider.isTrigger = true;
     }
     void DesactivateTrigger()
@@ -110,6 +111,14 @@ public class ChatacterMovement : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.gameObject.CompareTag("Plataforma2"))
+        {
+            _isGroundedDown = true;
+        }
+        else if (collision.gameObject.CompareTag("Plataforma"))
+        {
+            _isGroundedDown = false;
+        }
         if (collision.gameObject.CompareTag("Obstacle") || collision.gameObject.CompareTag("Enemy"))
         {
             StartCoroutine(WaitForDeath());
@@ -118,6 +127,7 @@ public class ChatacterMovement : MonoBehaviour
 
         }
     }
+    
     IEnumerator WaitForDeath()
     {
         yield return new WaitForSeconds(0.05f);

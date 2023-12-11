@@ -4114,13 +4114,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletDirection: {fileID: 1847506426}
   _bullet: {fileID: 4349288656650948377, guid: db4acec87c583b040967fa2662bd9f96, type: 3}
-  jumpForce: 8
-  velocidad: 5
+  jumpForce: 8.5
   _groundCheck: {fileID: 1210853633}
   _groundLayer:
     serializedVersion: 2
     m_Bits: 8
-  _uiManager: {fileID: 8316956189538905833}
 --- !u!50 &1114702667
 Rigidbody2D:
   serializedVersion: 4
