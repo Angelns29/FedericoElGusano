@@ -16,9 +16,7 @@ public class ChatacterMovement : MonoBehaviour
     private BoxCollider2D _collider;
     private SpriteRenderer _sr;
     public float jumpForce = 10f;
-    public float velocidad;
     private GameObject _platform;
-
     [SerializeField]private Transform _groundCheck;
     public LayerMask _groundLayer;
     public UIManager _uiManager;
@@ -41,8 +39,6 @@ public class ChatacterMovement : MonoBehaviour
     {
         Salto();
         PlayerShoot();
-
-
     }
     void Salto()
     {
