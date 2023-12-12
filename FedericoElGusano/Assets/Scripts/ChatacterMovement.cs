@@ -28,7 +28,7 @@ public class ChatacterMovement : MonoBehaviour
     private UIManager _uiManager;
     private bool _isGroundedDown;
 
-    void Awake()
+    void Start()
     {
         _uiManager = UIManager.instance;
         _animator = gameObject.GetComponent<Animator>();
@@ -102,11 +102,11 @@ public class ChatacterMovement : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Obstacle") || collision.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Obstacle") || collision.gameObject.CompareTag("Enemy"))
         {
             StartCoroutine(WaitForDeath());
             _uiManager.SetGameOver();
-            _audioManager.StopMusic();
+
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -123,7 +123,7 @@ public class ChatacterMovement : MonoBehaviour
         {
             StartCoroutine(WaitForDeath());
             _uiManager.SetGameOver();
-            _audioManager.StopMusic();
+            //_audioManager.StopMusic();
 
         }
     }
@@ -132,5 +132,6 @@ public class ChatacterMovement : MonoBehaviour
     {
         yield return new WaitForSeconds(0.05f);
         Time.timeScale = 0;
+        _audioManager.StopMusic();
     }
 }
