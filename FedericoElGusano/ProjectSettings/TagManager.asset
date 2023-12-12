@@ -9,6 +9,7 @@ TagManager:
   - Obstacle
   - Pared
   - Event
+  - Plataforma
   layers:
   - Default
   - TransparentFX
