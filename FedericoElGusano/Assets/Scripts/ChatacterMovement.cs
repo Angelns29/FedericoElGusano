@@ -102,7 +102,7 @@ public class ChatacterMovement : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Obstacle") || collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Obstacle") || collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("EnemyMole"))
         {
             StartCoroutine(WaitForDeath());
             _uiManager.SetGameOver();
@@ -119,7 +119,7 @@ public class ChatacterMovement : MonoBehaviour
         {
             _isGroundedDown = false;
         }
-        if (collision.gameObject.CompareTag("Obstacle") || collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Obstacle") || collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("EnemyMole"))
         {
             StartCoroutine(WaitForDeath());
             _uiManager.SetGameOver();

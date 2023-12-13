@@ -10,6 +10,8 @@ TagManager:
   - Pared
   - Event
   - Plataforma
+  - Bullet
+  - EnemyMole
   layers:
   - Default
   - TransparentFX
