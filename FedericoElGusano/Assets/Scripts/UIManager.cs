@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -39,6 +40,17 @@ public class UIManager : MonoBehaviour
         musicSlider.value = musicSource.volume;
         sfxSlider.value = sfxSource.volume;
     }
+    public void ChangeToShop()
+    {
+        SceneManager.LoadScene(2);
+        Destroy(gameObject);
+    }
+    public void ReturnFromShop()
+    {
+        SceneManager.LoadScene(1);
+        Destroy(gameObject);    
+    }
+
     #region pause
     public void ShowPauseMenu()
     {

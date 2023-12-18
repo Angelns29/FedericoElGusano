@@ -16,19 +16,29 @@ public class IALagartija : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         RaycastHit2D hit = Physics2D.Raycast(new Vector2(_transform.position.x-1, _transform.position.y), Vector2.left);
-        hit.distance = 1.5f;
         if (hit.collider != null)
         {
-            Debug.Log(hit.collider.gameObject.tag);
+            Debug.Log(hit.collider.gameObject.name);
             if (hit.collider.gameObject.CompareTag("Obstacle"))
             {
-                
-                _rb.velocity = new Vector3(0, jumpForce, 0);
-                StartCoroutine(JumpGravity());
-                _rb.gravityScale = 1;
+                if (hit.distance <= 1.5f)
+                {
+                    _rb.velocity = new Vector3(0, jumpForce, 0);
+                    StartCoroutine(JumpGravity());
+                    _rb.gravityScale = 1;
+                }
+            }
+            else if (hit.collider.gameObject.CompareTag("Player"))
+            {
+                if (hit.distance <= 3.5f)
+                {
+                    _rb.velocity = new Vector3(0, jumpForce, 0);
+                    StartCoroutine(JumpGravity());
+                    _rb.gravityScale = 1;
+                }
             }
         }
     }
