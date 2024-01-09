@@ -11,6 +11,8 @@ public class UIManager : MonoBehaviour
     public static UIManager instance;
     [Header("Start")]
     [SerializeField] public GameObject startMenu;
+    [Header("Tutorial")]
+    [SerializeField] public GameObject tutorial;
     [Header("Pause")]
     [SerializeField] public GameObject pauseMenu;
     public GameObject pauseButton;
@@ -77,6 +79,11 @@ public class UIManager : MonoBehaviour
     public void DisableStart()
     {
         startMenu.SetActive(false);
+        tutorial.SetActive(true);
+    }
+    public void StartGame()
+    {
+        tutorial.SetActive(false);
         pauseButton.SetActive(true);
         Time.timeScale = 1f;
     }
