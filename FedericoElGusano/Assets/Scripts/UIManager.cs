@@ -97,6 +97,49 @@ public class UIManager : MonoBehaviour
         pauseButton.SetActive(true);
         Time.timeScale = 1f;
     }
+    public void ChangeToShop()
+    {
+        SceneManager.LoadScene(2);
+        Destroy(gameObject);
+    }
+    public void JsonOrchestrator()
+    {
+        Shop shop = new Shop();
+        Inventory inventory = new Inventory();
+        string fileShop = "shop_items.data";
+        string fileinventory = "inventory.data";
+
+        try { inventory = Persistence.Load(fileinventory, inventory); }
+        catch
+        {
+            inventory.coins = 0;
+            inventory.armor = 0;
+            inventory.weapon = 0;
+            inventory.charge = 0;
+            Persistence.Save(inventory, fileinventory);
+        }
+
+        try { shop = Persistence.Load(fileShop, shop); }
+        catch
+        {
+            shop.shopItems = new ShopObject[10];
+            shop.shopItems[0] = new ShopObject(1, 25, false);
+            shop.shopItems[1] = new ShopObject(2, 100, true);
+            shop.shopItems[2] = new ShopObject(3, 300, true);
+            shop.shopItems[3] = new ShopObject(4, 50, false);
+            shop.shopItems[4] = new ShopObject(5, 325, true);
+            shop.shopItems[5] = new ShopObject(6, 600, true);
+            shop.shopItems[6] = new ShopObject(7, 100, false);
+            shop.shopItems[7] = new ShopObject(8, 350, true);
+            shop.shopItems[8] = new ShopObject(9, 800, true);
+            shop.coins = 1000;
+            Persistence.Save(shop, fileShop);
+        }
+        shop.coins += inventory.coins;
+        inventory.coins = 0;
+        Persistence.Save(shop, fileShop);
+        Persistence.Save(inventory, fileinventory);
+    }
     public void ExitGame()
     {
         Application.Quit();
