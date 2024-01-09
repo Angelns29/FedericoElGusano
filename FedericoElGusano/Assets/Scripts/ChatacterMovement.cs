@@ -51,6 +51,7 @@ public class ChatacterMovement : MonoBehaviour
             _rb.velocity = new Vector3(0, jumpForce, 0);
             ActivateTrigger();
             Invoke(nameof(DesactivateTrigger), 0.6f);
+            _audioManager.PlaySFX(_audioManager.jump);
             StartCoroutine(JumpGravity());
             _rb.gravityScale = 1;
         }
@@ -58,6 +59,7 @@ public class ChatacterMovement : MonoBehaviour
         {
             if (_rb.gravityScale != 1) _rb.gravityScale = 1;
             ActivateTrigger();
+            _audioManager.PlaySFX(_audioManager.jump);
             Invoke(nameof(DesactivateTrigger), 0.6f);
         }
     }
@@ -83,7 +85,7 @@ public class ChatacterMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Z))
         {
             Bullet bullet = BulletPool.Instance.GetBullet();
-
+            _audioManager.PlaySFX(_audioManager.attack);
             if (bullet != null)
             {
                 bullet.transform.position = transform.position;

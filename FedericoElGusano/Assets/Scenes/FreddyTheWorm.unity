@@ -2866,8 +2866,10 @@ MonoBehaviour:
   menuTheme: {fileID: 8300000, guid: 93da6de06b01be140b2fad99681c2e9a, type: 3}
   gameTheme: {fileID: 8300000, guid: 5573c7f2f08d0b04191cb877164b12b1, type: 3}
   gameOverTheme: {fileID: 8300000, guid: f86e7398905da4f4aaaa505852ff8e01, type: 3}
-  attack: {fileID: 0}
-  jump: {fileID: 0}
+  attack: {fileID: 8300000, guid: 457c2a0417e2bd44581a590235fbda87, type: 3}
+  jump: {fileID: 8300000, guid: 5782bc1fa9ff98541be28b4d255f944e, type: 3}
+  collectCoin: {fileID: 8300000, guid: e17ef2adfbc63ea4abfb4e6e47a4f336, type: 3}
+  killEnemy: {fileID: 8300000, guid: 03112f13e1110eb4c8921121a07b6a5d, type: 3}
 --- !u!4 &841541704
 Transform:
   m_ObjectHideFlags: 0
@@ -2902,7 +2904,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &846911808
 Animator:
   serializedVersion: 5
@@ -4743,7 +4745,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c55ade9b0a222f5428ac96cd04274eb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 8.5
+  jumpForce: 9
   bulletDirection: {fileID: 1847506426}
   _bullet: {fileID: 4349288656650948377, guid: db4acec87c583b040967fa2662bd9f96, type: 3}
   _groundCheck: {fileID: 1210853633}
@@ -9572,7 +9574,7 @@ GameObject:
   m_Layer: 0
   m_Name: ParallaxPivot
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -9585,7 +9587,7 @@ Transform:
   m_GameObject: {fileID: 2056415370}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.47, y: 0, z: 0}
+  m_LocalPosition: {x: -11.09, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11282,6 +11284,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 892298587955701883, guid: 1bd2c77a5a52ec242b7ba573eea4e5a1, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1044962312468558145, guid: 1bd2c77a5a52ec242b7ba573eea4e5a1, type: 3}
       propertyPath: m_Name
       value: Pajaro
