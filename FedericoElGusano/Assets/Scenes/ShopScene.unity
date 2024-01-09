@@ -317,8 +317,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 50992397}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.1470995, y: -0.9103682, z: 1.9085883}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -6.147099, y: -0.9103681, z: 1.9085922}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3340,9 +3340,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2036894067}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: ReturnFromShop
+      - m_Target: {fileID: 50992398}
+        m_TargetAssemblyTypeName: ShopManagerScript, Assembly-CSharp
+        m_MethodName: ReturnMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6897,7 +6897,6 @@ GameObject:
   - component: {fileID: 2036894066}
   - component: {fileID: 2036894065}
   - component: {fileID: 2036894064}
-  - component: {fileID: 2036894067}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -6990,26 +6989,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &2036894067
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2036894062}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cf2dce62156a4546874f8eb361f1c29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startMenu: {fileID: 0}
-  pauseMenu: {fileID: 0}
-  pauseButton: {fileID: 0}
-  gameoverMenu: {fileID: 0}
-  settingsMenu: {fileID: 0}
-  settingsDropdown: {fileID: 0}
-  parallax: {fileID: 0}
-  audioMixer: {fileID: 0}
 --- !u!1 &2038007255
 GameObject:
   m_ObjectHideFlags: 0
@@ -7304,5 +7283,5 @@ SceneRoots:
   - {fileID: 1391485845}
   - {fileID: 2036894063}
   - {fileID: 1905551397}
-  - {fileID: 50992399}
   - {fileID: 1704285503}
+  - {fileID: 50992399}

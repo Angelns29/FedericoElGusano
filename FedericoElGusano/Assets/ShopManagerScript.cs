@@ -4,6 +4,7 @@ using System.IO;
 using UnityEngine.EventSystems;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ShopManagerScript : MonoBehaviour
 {
@@ -90,5 +91,10 @@ public class ShopManagerScript : MonoBehaviour
                 break;
         }
     }
-   
+
+    public void ReturnMenu()
+    {
+        SceneManager.LoadScene(1);
+    }
+
 }
