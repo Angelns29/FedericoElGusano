@@ -116,11 +116,6 @@ public class UIManager : MonoBehaviour
         pauseButton.SetActive(true);
         Time.timeScale = 1f;
     }
-    public void ChangeToShop()
-    {
-        SceneManager.LoadScene(2);
-        Destroy(gameObject);
-    }
     public void JsonOrchestrator()
     {
         Shop shop = new Shop();
