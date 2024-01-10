@@ -48,25 +48,36 @@ public class ChatacterMovement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
         {
+
             _rb.velocity = new Vector3(0, jumpForce, 0);
+            _animator.SetBool("isJumping", true);
             ActivateTrigger();
             Invoke(nameof(DesactivateTrigger), 0.6f);
             _audioManager.PlaySFX(_audioManager.jump);
             StartCoroutine(JumpGravity());
             _rb.gravityScale = 1;
+            StartCoroutine(DesactivateJump());
         }
         if (Input.GetKeyDown(KeyCode.DownArrow) && IsGrounded() && _isGroundedDown==false)
         {
             if (_rb.gravityScale != 1) _rb.gravityScale = 1;
+            _animator.SetBool("isJumping", true);
             ActivateTrigger();
             _audioManager.PlaySFX(_audioManager.jump);
             Invoke(nameof(DesactivateTrigger), 0.6f);
+            StartCoroutine(DesactivateJump());
         }
+    }
+    IEnumerator DesactivateJump()
+    {
+        yield return new WaitForSeconds(0.6f);
+        _animator.SetBool("isJumping", false);
     }
     IEnumerator JumpGravity()
     {
-        yield return new WaitForSeconds(0.7f);
-        _rb.gravityScale = 3;
+        yield return new WaitForSeconds(0.6f);
+        _rb.gravityScale = 4;
+
     }
     void ActivateTrigger()
     {
