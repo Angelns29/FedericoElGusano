@@ -14,6 +14,7 @@ public class ChatacterMovement : MonoBehaviour
     private SpriteRenderer _sr;
     private GameObject _platform;
     private AudioManagerScript _audioManager;
+    public InventoryManager Inventory;
 
     [Header("Jump")]
     public float jumpForce;
@@ -104,8 +105,19 @@ public class ChatacterMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Obstacle") || collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("EnemyMole"))
         {
-            StartCoroutine(WaitForDeath());
-            _uiManager.SetGameOver();
+            if (Inventory.actualArmor.Equals(0))
+            {
+                StartCoroutine(WaitForDeath());
+                _uiManager.SetGameOver();
+                Inventory.SaveCoins();
+                Inventory.actualArmor = Inventory.inventory.armor;
+
+            }
+            else
+            {
+                Inventory.actualArmor--;
+            }
+            
 
         }
     }
@@ -117,13 +129,27 @@ public class ChatacterMovement : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Plataforma"))
         {
+            Inventory.inventory.coins++;
+            Debug.Log(Inventory.inventory.coins);
             _isGroundedDown = false;
         }
         if (collision.gameObject.CompareTag("Obstacle") || collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("EnemyMole"))
         {
-            StartCoroutine(WaitForDeath());
-            _uiManager.SetGameOver();
-            //_audioManager.StopMusic();
+            if (Inventory.actualArmor.Equals(0))
+            {
+                StartCoroutine(WaitForDeath());
+                _uiManager.SetGameOver();
+                Inventory.SaveCoins();
+                Inventory.actualArmor = Inventory.inventory.armor;
+                //_audioManager.StopMusic();
+
+            }
+            else
+            {
+                Inventory.actualArmor--;
+                Debug.Log(Inventory.actualArmor);
+            }
+            
 
         }
     }
