@@ -17,6 +17,7 @@ public class ScriptRana : Obstacle
         uiManager = UIManager.instance;
         _audioManager = AudioManagerScript.instance;
         tongue.SetActive(false);
+
     }
 
     // Update is called once per frame

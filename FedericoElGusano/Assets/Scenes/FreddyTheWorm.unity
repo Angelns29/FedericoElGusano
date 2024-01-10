@@ -4797,6 +4797,7 @@ MonoBehaviour:
   _groundLayer:
     serializedVersion: 2
     m_Bits: 8
+  invincibilityDurationSeconds: 1.5
 --- !u!50 &1114702667
 Rigidbody2D:
   serializedVersion: 4

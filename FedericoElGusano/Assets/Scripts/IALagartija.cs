@@ -21,7 +21,6 @@ public class IALagartija : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(new Vector2(_transform.position.x-1, _transform.position.y), Vector2.left);
         if (hit.collider != null)
         {
-            Debug.Log(hit.collider.gameObject.name);
             if (hit.collider.gameObject.CompareTag("Obstacle"))
             {
                 if (hit.distance <= 1.5f)
