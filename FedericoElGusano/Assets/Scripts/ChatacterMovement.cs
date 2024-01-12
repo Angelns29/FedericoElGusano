@@ -129,8 +129,6 @@ public class ChatacterMovement : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Plataforma"))
         {
-            Inventory.inventory.coins++;
-            Debug.Log(Inventory.inventory.coins);
             _isGroundedDown = false;
         }
         if (collision.gameObject.CompareTag("Obstacle") || collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("EnemyMole"))
@@ -149,8 +147,11 @@ public class ChatacterMovement : MonoBehaviour
                 Inventory.actualArmor--;
                 Debug.Log(Inventory.actualArmor);
             }
-            
-
+        }
+        if (collision.gameObject.CompareTag("Coin"))
+        {
+            Inventory.inventory.coins++;
+            Debug.Log(Inventory.inventory.coins);
         }
     }
     
