@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ScriptRana : Obstacle
@@ -9,6 +10,7 @@ public class ScriptRana : Obstacle
     public GameObject tongue;
     private UIManager uiManager;
     private AudioManagerScript _audioManager;
+    private InventoryManager federico;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +19,7 @@ public class ScriptRana : Obstacle
         uiManager = UIManager.instance;
         _audioManager = AudioManagerScript.instance;
         tongue.SetActive(false);
+        federico = GameObject.FindGameObjectWithTag("Player").GetComponent<InventoryManager>();
 
     }
 
@@ -31,8 +34,13 @@ public class ScriptRana : Obstacle
             {
                 tongue.SetActive(true);
                 _anim.SetBool("isAbove", true);
-                StartCoroutine(WaitForDeath());
-                uiManager.SetGameOver();
+                if (federico.inventory.armor <= 0)
+                {
+                    StartCoroutine(WaitForDeath());
+                    uiManager.SetGameOver();
+                    GameObject.FindGameObjectWithTag("Player").GetComponent<InventoryManager>().inventory.armor = federico.actualArmor;
+                }
+                else GameObject.FindGameObjectWithTag("Player").GetComponent<InventoryManager>().inventory.armor--;
             }
         }
         Movement(rb2d);

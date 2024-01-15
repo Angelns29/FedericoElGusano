@@ -5686,8 +5686,20 @@ PrefabInstance:
       value: Piedra1
       objectReference: {fileID: 0}
     - target: {fileID: 905532920516014393, guid: 9de7e1e29c94ae54cad221c307c100c0, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 905532920516014393, guid: 9de7e1e29c94ae54cad221c307c100c0, type: 3}
       propertyPath: m_TagString
       value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 7838767240963512642, guid: 9de7e1e29c94ae54cad221c307c100c0, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7838767240963512642, guid: 9de7e1e29c94ae54cad221c307c100c0, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 128
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9740,6 +9752,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Piedra1
       objectReference: {fileID: 0}
+    - target: {fileID: 905532920516014393, guid: 9de7e1e29c94ae54cad221c307c100c0, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7838767240963512642, guid: 9de7e1e29c94ae54cad221c307c100c0, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7838767240963512642, guid: 9de7e1e29c94ae54cad221c307c100c0, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10711,6 +10735,18 @@ PrefabInstance:
     - target: {fileID: 1507541585023180864, guid: 74760a655c009a740a6e066f253c2925, type: 3}
       propertyPath: m_Name
       value: Piedra2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1507541585023180864, guid: 74760a655c009a740a6e066f253c2925, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691647682428774183, guid: 74760a655c009a740a6e066f253c2925, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691647682428774183, guid: 74760a655c009a740a6e066f253c2925, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 128
       objectReference: {fileID: 0}
     - target: {fileID: 9108105225653586264, guid: 74760a655c009a740a6e066f253c2925, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12719,9 +12755,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3148654711900325126, guid: ff896a6b80d8782459dbe826a202dd1e, type: 3}
+      propertyPath: m_Simulated
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6483866477965484680, guid: ff896a6b80d8782459dbe826a202dd1e, type: 3}
       propertyPath: m_Name
       value: Piedra3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6483866477965484680, guid: ff896a6b80d8782459dbe826a202dd1e, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7276284008081458101, guid: ff896a6b80d8782459dbe826a202dd1e, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 128
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12986,8 +13034,20 @@ PrefabInstance:
       value: Piedra1
       objectReference: {fileID: 0}
     - target: {fileID: 905532920516014393, guid: 9de7e1e29c94ae54cad221c307c100c0, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 905532920516014393, guid: 9de7e1e29c94ae54cad221c307c100c0, type: 3}
       propertyPath: m_TagString
       value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 7838767240963512642, guid: 9de7e1e29c94ae54cad221c307c100c0, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7838767240963512642, guid: 9de7e1e29c94ae54cad221c307c100c0, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 128
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14243,6 +14303,10 @@ PrefabInstance:
     - target: {fileID: 4160865296152644877, guid: 69e04eac907f64d4dadf3d66cd1d82ca, type: 3}
       propertyPath: m_IsTrigger
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4160865296152644877, guid: 69e04eac907f64d4dadf3d66cd1d82ca, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 128
       objectReference: {fileID: 0}
     - target: {fileID: 4707037087314436726, guid: 69e04eac907f64d4dadf3d66cd1d82ca, type: 3}
       propertyPath: m_LocalPosition.x
