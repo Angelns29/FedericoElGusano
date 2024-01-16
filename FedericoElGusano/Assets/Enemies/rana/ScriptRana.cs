@@ -10,7 +10,7 @@ public class ScriptRana : Obstacle
     public GameObject tongue;
     private UIManager uiManager;
     private AudioManagerScript _audioManager;
-    private InventoryManager federico;
+    private ChatacterMovement federico;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +19,7 @@ public class ScriptRana : Obstacle
         uiManager = UIManager.instance;
         _audioManager = AudioManagerScript.instance;
         tongue.SetActive(false);
-        federico = GameObject.FindGameObjectWithTag("Player").GetComponent<InventoryManager>();
+        federico = GameObject.FindGameObjectWithTag("Player").GetComponent<ChatacterMovement>();
 
     }
 
@@ -32,15 +32,21 @@ public class ScriptRana : Obstacle
         {
             if (hit.collider.gameObject.CompareTag("Player"))
             {
+                Debug.Log(federico);
                 tongue.SetActive(true);
                 _anim.SetBool("isAbove", true);
-                if (federico.inventory.armor <= 0)
+                if (federico.Inventory.actualArmor <= 0)
                 {
+                    Debug.Log(federico.Inventory.actualArmor);
                     StartCoroutine(WaitForDeath());
                     uiManager.SetGameOver();
-                    GameObject.FindGameObjectWithTag("Player").GetComponent<InventoryManager>().inventory.armor = federico.actualArmor;
+                    GameObject.FindGameObjectWithTag("Player").GetComponent<ChatacterMovement>().Inventory.actualArmor = federico.Inventory.inventory.armor;
                 }
-                else GameObject.FindGameObjectWithTag("Player").GetComponent<InventoryManager>().inventory.armor--;
+                else
+                {
+                    GameObject.FindGameObjectWithTag("Player").GetComponent<ChatacterMovement>().Inventory.actualArmor--;
+                }
+                    
             }
         }
         Movement(rb2d);

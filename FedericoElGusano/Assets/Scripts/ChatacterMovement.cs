@@ -41,6 +41,8 @@ public class ChatacterMovement : MonoBehaviour
         _sr = GetComponent<SpriteRenderer>();
         _collider = gameObject.GetComponent<BoxCollider2D>();
         _audioManager = AudioManagerScript.instance;
+        Inventory.actualArmor = Inventory.inventory.armor;
+        Inventory.actualCharge = Inventory.inventory.charge;
     }
 
     // Update is called once per frame
@@ -120,7 +122,7 @@ public class ChatacterMovement : MonoBehaviour
             else
             {
                 Inventory.actualArmor--;
-                BecomeTemporarilyInvincible(_isInvicible);
+                StartCoroutine(BecomeTemporarilyInvincible(_isInvicible));
             }
             
 
@@ -151,8 +153,7 @@ public class ChatacterMovement : MonoBehaviour
             else
             {
                 Inventory.actualArmor--;
-                Debug.Log(Inventory.actualArmor);
-                BecomeTemporarilyInvincible(_isInvicible);
+                StartCoroutine(BecomeTemporarilyInvincible(_isInvicible));
             }
             
 
@@ -166,14 +167,18 @@ public class ChatacterMovement : MonoBehaviour
         _audioManager.StopMusic();
     }
 
-    IEnumerator BecomeTemporarilyInvincible(bool _isInvincible)
+    public IEnumerator BecomeTemporarilyInvincible(bool _isInvincible)
     {
         Debug.Log("Player turned invincible!");
         _isInvincible = true;
+        this.gameObject.layer = LayerMask.NameToLayer("Invincible");
+            Debug.Log(gameObject.layer);
 
         yield return new WaitForSeconds(invincibilityDurationSeconds);
 
         _isInvincible = false;
+        this.gameObject.layer = LayerMask.NameToLayer("Default");
+        Debug.Log(gameObject.layer);
         Debug.Log("Player is no longer invincible!");
     }
 }
