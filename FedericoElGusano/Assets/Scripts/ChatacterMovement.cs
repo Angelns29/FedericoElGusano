@@ -106,6 +106,7 @@ public class ChatacterMovement : MonoBehaviour
         {
             StartCoroutine(WaitForDeath());
             _uiManager.SetGameOver();
+            UpdateArchivements();
 
         }
     }
@@ -123,6 +124,7 @@ public class ChatacterMovement : MonoBehaviour
         {
             StartCoroutine(WaitForDeath());
             _uiManager.SetGameOver();
+            UpdateArchivements();
             //_audioManager.StopMusic();
 
         }
@@ -132,6 +134,14 @@ public class ChatacterMovement : MonoBehaviour
     {
         yield return new WaitForSeconds(0.05f);
         Time.timeScale = 0;
-        _audioManager.StopMusic();
+        _audioManager.StartGameOverTheme();
+    }
+    public void UpdateArchivements()
+    {
+        PlayerPrefs.SetInt("avanzar", PlayerPrefs.GetInt("avanzar") + 33);
+        PlayerPrefs.SetInt("matar", PlayerPrefs.GetInt("matar") + 3);
+        PlayerPrefs.SetInt("monedas", PlayerPrefs.GetInt("monedas") + 3);
+        PlayerPrefs.SetInt("muerte", PlayerPrefs.GetInt("muerte") + 1);
+
     }
 }

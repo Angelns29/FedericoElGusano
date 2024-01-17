@@ -6,43 +6,44 @@ using UnityEngine.UI;
 
 public class Achievements : MonoBehaviour
 {
-    private Image image;
-
-    public enum AchievemntTypes { avanzar, matar, monedas, muerte }
-    [SerializeField] private AchievemntTypes achievementType;
-    public AchievemntTypes _achievementType { get { return achievementType; } }
+   [SerializeField] private Image image;
+    [SerializeField] private Slider slider;
+    [SerializeField] private int archivementCount;
+    public enum AchievementTypes { avanzar, matar, monedas, muerte }
+    [SerializeField] private AchievementTypes achievementType;
+    public AchievementTypes _achievementType { get { return achievementType; } }
     public bool isUnlocked {  get; private set; }
 
-    private void Awake()
+    private void Start()
     {
-        image = GetComponent<Image>();
+        CheckIfAchievementIsUnlocked();
+        ChangeSlider();
+    }
+    private void FixedUpdate()
+    {
+        if (PlayerPrefs.GetInt(achievementType.ToString()) == archivementCount) UnlockThisAchievements();
     }
     public void CheckIfAchievementIsUnlocked()
     {
-        if (PlayerPrefs.GetInt(achievementType.ToString())==0)
+        if (PlayerPrefs.GetInt(achievementType.ToString())>=archivementCount)
         {
-            image.color = Color.gray;
+            image.color = Color.white;
+            isUnlocked = true;
         }
         else
         {
-            image.color= Color.white;
-            isUnlocked = true;
+            image.color = new Color(0.14f, 0.14f, 0.14f, 255);  
         }
     }
     public void UnlockThisAchievements()
     {
-        PlayerPrefs.SetInt(achievementType.ToString(), 1);
-        CheckIfAchievementIsUnlocked();
+        PlayerPrefs.SetInt(achievementType.ToString(), archivementCount);
+        Start();
     }
-    // Start is called before the first frame update
-    void Start()
+    public void ChangeSlider()
     {
-        
+        float archivalue = (float)PlayerPrefs.GetInt(achievementType.ToString()) / archivementCount;
+        slider.value= archivalue;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }

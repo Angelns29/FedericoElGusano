@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 153565818}
   m_Layer: 5
-  m_Name: Titulo
+  m_Name: ArchivementsTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -216,7 +216,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Volver
+  m_text: Menu
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bd0031d9dfa1f1a4897983ba286f3468, type: 2}
   m_sharedMaterial: {fileID: 240794748592202187, guid: bd0031d9dfa1f1a4897983ba286f3468, type: 2}
@@ -449,10 +449,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1900, y: 600}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -477,7 +477,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
+  m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -615,7 +615,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1545988879}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.48804995
+  m_Size: 0.48804998
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -671,7 +671,7 @@ GameObject:
   - component: {fileID: 1040771301}
   - component: {fileID: 1040771300}
   m_Layer: 5
-  m_Name: Button
+  m_Name: MenuButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -740,7 +740,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1040771301}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 626266521}
+        m_TargetAssemblyTypeName: AchievementsManager, Assembly-CSharp
+        m_MethodName: ReturnToMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &1040771301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -791,7 +803,7 @@ GameObject:
   - component: {fileID: 1077578892}
   - component: {fileID: 1077578891}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: TitleText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1069,8 +1081,8 @@ Transform:
   m_GameObject: {fileID: 1232788864}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -45.5668, y: 9.3785, z: -10}
+  m_LocalScale: {x: 1.0325, y: 1.0289, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1987,7 +1999,7 @@ RectTransform:
   m_GameObject: {fileID: 4025396017716435964}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.875, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2238389997853106715}
@@ -2198,7 +2210,7 @@ RectTransform:
   m_GameObject: {fileID: 3750878140872558108}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.875, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2071801264654286843}
@@ -2249,7 +2261,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 3078166871498771547}
   m_HandleRect: {fileID: 0}
@@ -2486,7 +2498,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 2983361971122950587}
   m_HandleRect: {fileID: 0}
@@ -2802,7 +2814,7 @@ RectTransform:
   m_GameObject: {fileID: 2740247697736739627}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.875, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1065698677579764428}
@@ -2853,7 +2865,7 @@ RectTransform:
   m_GameObject: {fileID: 2601872871803493978}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.875, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 925201759893350333}
@@ -2910,7 +2922,7 @@ RectTransform:
   m_GameObject: {fileID: 2632881619431982088}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.875, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 883990221131546095}
@@ -3170,7 +3182,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 4224840621747164189}
   m_HandleRect: {fileID: 0}
@@ -3221,7 +3233,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 4193920374134918735}
   m_HandleRect: {fileID: 0}
@@ -3299,7 +3311,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 4088498240962290028}
   m_HandleRect: {fileID: 0}
@@ -4064,7 +4076,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 940307479483504053}
   m_HandleRect: {fileID: 0}
@@ -4165,7 +4177,7 @@ RectTransform:
   m_GameObject: {fileID: 1420524035840810994}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.875, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4286292817688585749}
@@ -4190,7 +4202,7 @@ GameObject:
   - component: {fileID: 3753422875440147828}
   - component: {fileID: 3753422875440147829}
   m_Layer: 0
-  m_Name: Imagen (2)
+  m_Name: Mata1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4209,7 +4221,7 @@ GameObject:
   - component: {fileID: 3753422875159013563}
   - component: {fileID: 3753422875159013564}
   m_Layer: 0
-  m_Name: Imagen (7)
+  m_Name: Recolecta2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4228,7 +4240,7 @@ GameObject:
   - component: {fileID: 3753422875033397191}
   - component: {fileID: 3753422875033397192}
   m_Layer: 0
-  m_Name: Imagen (11)
+  m_Name: Recolecta3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4247,7 +4259,7 @@ GameObject:
   - component: {fileID: 3753422874879850382}
   - component: {fileID: 3753422874879850383}
   m_Layer: 0
-  m_Name: Imagen (4)
+  m_Name: Muere1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4266,7 +4278,7 @@ GameObject:
   - component: {fileID: 3753422874518364300}
   - component: {fileID: 3753422874518364301}
   m_Layer: 0
-  m_Name: Imagen (8)
+  m_Name: Muere2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4285,7 +4297,7 @@ GameObject:
   - component: {fileID: 3753422874321767778}
   - component: {fileID: 3753422874321767779}
   m_Layer: 0
-  m_Name: Imagen (9)
+  m_Name: Avanza3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4304,7 +4316,7 @@ GameObject:
   - component: {fileID: 3753422874274297950}
   - component: {fileID: 3753422874274297951}
   m_Layer: 0
-  m_Name: Imagen (12)
+  m_Name: Muere3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4323,7 +4335,7 @@ GameObject:
   - component: {fileID: 3753422873994447996}
   - component: {fileID: 3753422873994447997}
   m_Layer: 0
-  m_Name: Imagen (6)
+  m_Name: Mata2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4342,7 +4354,7 @@ GameObject:
   - component: {fileID: 3753422874089606375}
   - component: {fileID: 3753422874089606376}
   m_Layer: 0
-  m_Name: Imagen (5)
+  m_Name: Avanza2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4361,7 +4373,7 @@ GameObject:
   - component: {fileID: 3753422873828370862}
   - component: {fileID: 3753422873828370863}
   m_Layer: 0
-  m_Name: Imagen (10)
+  m_Name: Mata3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4380,7 +4392,7 @@ GameObject:
   - component: {fileID: 3753422873382166684}
   - component: {fileID: 3753422873382166685}
   m_Layer: 0
-  m_Name: Imagen (3)
+  m_Name: Recolecta1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4644,6 +4656,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95d6a890d470fca44859dfb020b1cc91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  image: {fileID: 8178341508719049399}
+  slider: {fileID: 3141183756480990523}
+  archivementCount: 5
   achievementType: 2
 --- !u!114 &3753422873828370862
 MonoBehaviour:
@@ -4687,6 +4702,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95d6a890d470fca44859dfb020b1cc91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  image: {fileID: 8178341507278623161}
+  slider: {fileID: 4422947441234889365}
+  archivementCount: 50
   achievementType: 1
 --- !u!114 &3753422873994447996
 MonoBehaviour:
@@ -4730,6 +4748,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95d6a890d470fca44859dfb020b1cc91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  image: {fileID: 8178341507196529329}
+  slider: {fileID: 7370882251884368006}
+  archivementCount: 10
   achievementType: 1
 --- !u!114 &3753422874089606375
 MonoBehaviour:
@@ -4773,6 +4794,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95d6a890d470fca44859dfb020b1cc91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  image: {fileID: 8178341508174132172}
+  slider: {fileID: 1151824980266600757}
+  archivementCount: 500
   achievementType: 0
 --- !u!114 &3753422874274297950
 MonoBehaviour:
@@ -4816,6 +4840,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95d6a890d470fca44859dfb020b1cc91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  image: {fileID: 8178341507748267059}
+  slider: {fileID: 4659819051317313932}
+  archivementCount: 20
   achievementType: 3
 --- !u!114 &3753422874321767778
 MonoBehaviour:
@@ -4859,6 +4886,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95d6a890d470fca44859dfb020b1cc91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  image: {fileID: 8178341506954218325}
+  slider: {fileID: 2172527419504392674}
+  archivementCount: 1000
   achievementType: 0
 --- !u!114 &3753422874518364300
 MonoBehaviour:
@@ -4902,6 +4932,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95d6a890d470fca44859dfb020b1cc91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  image: {fileID: 8178341507011410006}
+  slider: {fileID: 877292792316450005}
+  archivementCount: 5
   achievementType: 3
 --- !u!114 &3753422874879850382
 MonoBehaviour:
@@ -4945,6 +4978,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95d6a890d470fca44859dfb020b1cc91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  image: {fileID: 8178341507492300786}
+  slider: {fileID: 2034144311131917459}
+  archivementCount: 1
   achievementType: 3
 --- !u!114 &3753422875033397191
 MonoBehaviour:
@@ -4988,6 +5024,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95d6a890d470fca44859dfb020b1cc91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  image: {fileID: 8178341507573335164}
+  slider: {fileID: 2065130279987762881}
+  archivementCount: 50
   achievementType: 2
 --- !u!114 &3753422875159013563
 MonoBehaviour:
@@ -5031,6 +5070,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95d6a890d470fca44859dfb020b1cc91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  image: {fileID: 8178341507320045465}
+  slider: {fileID: 5250761656242506868}
+  archivementCount: 10
   achievementType: 2
 --- !u!114 &3753422875440147828
 MonoBehaviour:
@@ -5074,6 +5116,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95d6a890d470fca44859dfb020b1cc91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  image: {fileID: 1101383801832662956}
+  slider: {fileID: 7160834479787466926}
+  archivementCount: 5
   achievementType: 1
 --- !u!114 &3796876948199819310
 MonoBehaviour:
@@ -5239,7 +5284,7 @@ RectTransform:
   m_GameObject: {fileID: 378436156317210716}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.875, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3282339231365816763}
@@ -5478,7 +5523,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 2016040416830312987}
   m_HandleRect: {fileID: 0}
@@ -5545,7 +5590,7 @@ GameObject:
   - component: {fileID: 5644991317145337182}
   - component: {fileID: 6360997208823404320}
   m_Layer: 0
-  m_Name: Imagen (1)
+  m_Name: Avanza1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5590,7 +5635,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 7363418296413772034}
   m_HandleRect: {fileID: 0}
@@ -5733,7 +5778,7 @@ RectTransform:
   m_GameObject: {fileID: 8685770582243480389}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.875, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5784664665933605538}
@@ -5784,7 +5829,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 7945878855956600058}
   m_HandleRect: {fileID: 0}
@@ -5835,7 +5880,7 @@ RectTransform:
   m_GameObject: {fileID: 5333984722372820258}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.875, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7093144440774387733}
@@ -6923,7 +6968,7 @@ RectTransform:
   m_GameObject: {fileID: 8142364117456871101}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.875, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6355197585522141018}
@@ -7159,6 +7204,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95d6a890d470fca44859dfb020b1cc91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  image: {fileID: 7580263015180730776}
+  slider: {fileID: 7030383699266198929}
+  archivementCount: 100
   achievementType: 0
 --- !u!222 &6504698468232457829
 CanvasRenderer:
@@ -7322,7 +7370,7 @@ RectTransform:
   m_GameObject: {fileID: 6803721556749468239}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.875, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8549770787201530792}
@@ -7391,7 +7439,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 3913282502324501399}
   m_HandleRect: {fileID: 0}
@@ -7402,7 +7450,19 @@ MonoBehaviour:
   m_Value: 0.375
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6360997208823404320}
+        m_TargetAssemblyTypeName: Achievements, Assembly-CSharp
+        m_MethodName: ChangeSlider
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!224 &7093144440774387733
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8351,7 +8411,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 5042756516153587744}
   m_HandleRect: {fileID: 0}
@@ -8372,7 +8432,7 @@ RectTransform:
   m_GameObject: {fileID: 6575655589264568935}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.875, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8326069829425286016}
@@ -8460,7 +8520,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 4670724344501733384}
   m_HandleRect: {fileID: 0}

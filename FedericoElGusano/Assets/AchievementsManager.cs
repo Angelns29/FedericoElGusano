@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AchievementsManager : MonoBehaviour
 {
@@ -12,13 +13,16 @@ public class AchievementsManager : MonoBehaviour
     {
         instance = this;
     }
-    public void UnlockAchievement(Achievements.AchievemntTypes achievemntType)
+    public void UnlockAchievement(Achievements.AchievementTypes achievemntType)
     {
-        Achievements achievementToUnlock = Array.Find(logros, dummyTrophy=> dummyTrophy._achievementType == achievemntType);
+        Achievements achievementToUnlock = Array.Find(logros, trophy=> trophy._achievementType == achievemntType);
 
-        if(!achievementToUnlock.isUnlocked) 
-        {
-            achievementToUnlock.UnlockThisAchievements();
-        }
+        if(achievementToUnlock == null )return;
+
+        if(!achievementToUnlock.isUnlocked)  achievementToUnlock.UnlockThisAchievements();
+    }
+    public void ReturnToMenu()
+    {
+        SceneManager.LoadScene("FreddyTheWorm");
     }
 }
