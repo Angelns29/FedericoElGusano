@@ -11,11 +11,14 @@ public class Achievements : MonoBehaviour
     [SerializeField] private Slider slider;
     [SerializeField] private int archivementCount;
     public enum AchievementTypes { avanzar, matar, monedas, muerte }
+    [SerializeField] private int numType;
     [SerializeField] private AchievementTypes achievementType;
+
+    [SerializeField] private GameObject rewardButton;
     public AchievementTypes _achievementType { get { return achievementType; } }
     public bool isUnlocked {  get; private set; }
-    private bool rewardCollected = false;
-    public GameObject rewardButton;
+
+    public bool rewardCollected= false;
     private void Awake()
     {
         imageBackgroundArchivement = GetComponent<Image>();
@@ -35,11 +38,12 @@ public class Achievements : MonoBehaviour
         {
             image.color = Color.white;
             isUnlocked = true;
-            if (!rewardCollected )
+            if (PlayerPrefs.GetInt(achievementType.ToString() + numType) == 0)
             {
-                imageBackgroundArchivement.color = Color.green;
                 rewardButton.SetActive(true);
+                imageBackgroundArchivement.color = Color.green;
             }
+            
         }
         else
         {
@@ -60,7 +64,9 @@ public class Achievements : MonoBehaviour
     {
         //Añadir Monedas al Personaje
         rewardCollected = true;
+        Debug.Log("10 monedas");
+        PlayerPrefs.SetInt(achievementType.ToString() + numType.ToString(), 1);
+        imageBackgroundArchivement.color= Color.white;
         rewardButton.SetActive(false);
-        imageBackgroundArchivement.color = Color.white;
     }
 }

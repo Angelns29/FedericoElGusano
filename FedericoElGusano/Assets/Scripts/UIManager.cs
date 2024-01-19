@@ -169,6 +169,13 @@ public class UIManager : MonoBehaviour
         PlayerPrefs.SetInt("matar", 0);
         PlayerPrefs.SetInt("monedas", 0);
         PlayerPrefs.SetInt("muerte", 0);
+        for (int i = 1; i < 4; i++)
+        {
+            PlayerPrefs.SetInt("avanzar" + i, 0);
+            PlayerPrefs.SetInt("matar"+i, 0);
+            PlayerPrefs.SetInt("monedas"+i, 0);
+            PlayerPrefs.SetInt("muerte"+i, 0);
+        }
     }
     #endregion
 }
