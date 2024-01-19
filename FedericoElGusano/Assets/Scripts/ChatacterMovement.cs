@@ -49,23 +49,38 @@ public class ChatacterMovement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
         {
+            
+           
             _rb.velocity = new Vector3(0, jumpForce, 0);
+            _animator.SetBool("isJumping", true);
             ActivateTrigger();
             Invoke(nameof(DesactivateTrigger), 0.6f);
-            StartCoroutine(JumpGravity());
+            _audioManager.PlaySFX(_audioManager.jump);
+            if (_isGroundedDown) StartCoroutine(DesactivateJumpFromUnderground());
+            else StartCoroutine(DesactivateJump());
             _rb.gravityScale = 1;
         }
-        if (Input.GetKeyDown(KeyCode.DownArrow) && IsGrounded() && _isGroundedDown==false)
+        if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S) && IsGrounded() && _isGroundedDown==false)
         {
             if (_rb.gravityScale != 1) _rb.gravityScale = 1;
+            _animator.SetBool("isJumping", true);
             ActivateTrigger();
+            _audioManager.PlaySFX(_audioManager.jump);
             Invoke(nameof(DesactivateTrigger), 0.6f);
+            StartCoroutine(DesactivateJump());
         }
     }
-    IEnumerator JumpGravity()
+    IEnumerator DesactivateJumpFromUnderground()
     {
-        yield return new WaitForSeconds(0.7f);
-        _rb.gravityScale = 3;
+        yield return new WaitForSeconds(0.8f);
+        _animator.SetBool("isJumping", false);
+        _rb.gravityScale = 4;
+    }
+    IEnumerator DesactivateJump()
+    {
+        yield return new WaitForSeconds(0.6f);
+        _animator.SetBool("isJumping", false);
+        _rb.gravityScale = 4;
     }
     void ActivateTrigger()
     {
@@ -84,7 +99,7 @@ public class ChatacterMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Z))
         {
             Bullet bullet = BulletPool.Instance.GetBullet();
-
+            _audioManager.PlaySFX(_audioManager.attack);
             if (bullet != null)
             {
                 bullet.transform.position = transform.position;

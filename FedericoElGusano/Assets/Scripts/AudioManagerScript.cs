@@ -16,6 +16,8 @@ public class AudioManagerScript : MonoBehaviour
     public AudioClip gameOverTheme;
     public AudioClip attack;
     public AudioClip jump;
+    public AudioClip collectCoin;
+    public AudioClip killEnemy;
 
 
     void Awake()

@@ -10,11 +10,13 @@ public class Bullet : MonoBehaviour
     private Animator animatorController;
     private float bulletSpeed = 5f;
     private Rigidbody2D rb;
+    private AudioManagerScript _audioManager;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         animatorController = GetComponent<Animator>();
+        _audioManager = AudioManagerScript.instance;
     }
     private void Update()
     {
@@ -36,8 +38,15 @@ public class Bullet : MonoBehaviour
         if (other.CompareTag("Pared") || other.CompareTag("Obstacle"))
         {
             AnimateExplotion();
-            gameObject.SetActive(false);
-           
+            gameObject.SetActive(false);    
+        }
+    }
+    private void OnCollisionEnter2D(UnityEngine.Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            _audioManager.PlaySFX(_audioManager.killEnemy);
+            Destroy(collision.gameObject);
         }
     }
     private void AnimateExplotion()
