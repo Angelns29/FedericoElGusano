@@ -35,27 +35,16 @@ public class ScriptRana : Obstacle
                 Debug.Log(federico);
                 tongue.SetActive(true);
                 _anim.SetBool("isAbove", true);
-                if (federico.Inventory.actualArmor <= 0)
-                {
-                    Debug.Log(federico.Inventory.actualArmor);
-                    StartCoroutine(WaitForDeath());
-                    uiManager.SetGameOver();
-                    GameObject.FindGameObjectWithTag("Player").GetComponent<ChatacterMovement>().Inventory.actualArmor = federico.Inventory.inventory.armor;
-                }
-                else
-                {
-                    GameObject.FindGameObjectWithTag("Player").GetComponent<ChatacterMovement>().Inventory.actualArmor--;
-                }
+                StartCoroutine(WaitForTongue());
                     
             }
         }
         Movement(rb2d);
     }
-
-    IEnumerator WaitForDeath()
+    IEnumerator WaitForTongue()
     {
-        yield return new WaitForSeconds(0.05f);
-        Time.timeScale = 0;
-        _audioManager.StartGameOverTheme();
+        yield return new WaitForSeconds(0.5f);
+        tongue.SetActive(false);
+        _anim.SetBool("isAbove", false);
     }
 }

@@ -30,7 +30,7 @@ public class ChatacterMovement : MonoBehaviour
     private bool _isGroundedDown;
 
     [SerializeField]private float invincibilityDurationSeconds;
-    private bool _isInvicible;
+    public bool _isInvicible;
 
     void Start()
     {
