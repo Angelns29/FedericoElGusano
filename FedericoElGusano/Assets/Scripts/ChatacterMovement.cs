@@ -29,14 +29,20 @@ public class ChatacterMovement : MonoBehaviour
     private UIManager _uiManager;
     private bool _isGroundedDown;
 
+    [SerializeField]private float invincibilityDurationSeconds;
+    public bool _isInvicible;
+
     void Start()
     {
+        _isInvicible= false;
         _uiManager = UIManager.instance;
         _animator = gameObject.GetComponent<Animator>();
         _rb = GetComponent<Rigidbody2D>();
         _sr = GetComponent<SpriteRenderer>();
         _collider = gameObject.GetComponent<BoxCollider2D>();
         _audioManager = AudioManagerScript.instance;
+        Inventory.actualArmor = Inventory.inventory.armor;
+        Inventory.actualCharge = Inventory.inventory.charge;
     }
 
     // Update is called once per frame
@@ -118,7 +124,7 @@ public class ChatacterMovement : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Obstacle") || collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("EnemyMole"))
+        if ((collision.gameObject.CompareTag("Obstacle") || collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("EnemyMole")) && !_isInvicible)
         {
             if (Inventory.actualArmor.Equals(0))
             {
@@ -131,6 +137,7 @@ public class ChatacterMovement : MonoBehaviour
             else
             {
                 Inventory.actualArmor--;
+                StartCoroutine(BecomeTemporarilyInvincible(_isInvicible));
             }
             
 
@@ -145,10 +152,9 @@ public class ChatacterMovement : MonoBehaviour
         else if (collision.gameObject.CompareTag("Plataforma"))
         {
             Inventory.inventory.coins++;
-            Debug.Log(Inventory.inventory.coins);
             _isGroundedDown = false;
         }
-        if (collision.gameObject.CompareTag("Obstacle") || collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("EnemyMole"))
+        if ((collision.gameObject.CompareTag("Obstacle") || collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("EnemyMole")) && !_isInvicible)
         {
             if (Inventory.actualArmor.Equals(0))
             {
@@ -162,7 +168,7 @@ public class ChatacterMovement : MonoBehaviour
             else
             {
                 Inventory.actualArmor--;
-                Debug.Log(Inventory.actualArmor);
+                StartCoroutine(BecomeTemporarilyInvincible(_isInvicible));
             }
             
 
@@ -174,5 +180,20 @@ public class ChatacterMovement : MonoBehaviour
         yield return new WaitForSeconds(0.05f);
         Time.timeScale = 0;
         _audioManager.StopMusic();
+    }
+
+    public IEnumerator BecomeTemporarilyInvincible(bool _isInvincible)
+    {
+        Debug.Log("Player turned invincible!");
+        _isInvincible = true;
+        this.gameObject.layer = LayerMask.NameToLayer("Invincible");
+            Debug.Log(gameObject.layer);
+
+        yield return new WaitForSeconds(invincibilityDurationSeconds);
+
+        _isInvincible = false;
+        this.gameObject.layer = LayerMask.NameToLayer("Default");
+        Debug.Log(gameObject.layer);
+        Debug.Log("Player is no longer invincible!");
     }
 }
