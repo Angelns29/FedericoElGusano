@@ -4992,6 +4992,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c55ade9b0a222f5428ac96cd04274eb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Inventory: {fileID: 441432648}
   jumpForce: 9
   bulletDirection: {fileID: 1847506426}
   _bullet: {fileID: 4349288656650948377, guid: db4acec87c583b040967fa2662bd9f96, type: 3}
