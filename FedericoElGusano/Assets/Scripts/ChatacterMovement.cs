@@ -104,22 +104,27 @@ public class ChatacterMovement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            Bullet bullet = BulletPool.Instance.GetBullet();
-            _audioManager.PlaySFX(_audioManager.attack);
-            if (bullet != null)
+            if(Inventory.actualCharge > 0)
             {
-                bullet.transform.position = transform.position;
-                bullet.transform.rotation = transform.rotation;
-                
-                bullet.gameObject.SetActive(true);
+                Bullet bullet = BulletPool.Instance.GetBullet();
+                Inventory.actualCharge--;
+                _audioManager.PlaySFX(_audioManager.attack);
+                if (bullet != null)
+                {
+                    bullet.transform.position = transform.position;
+                    bullet.transform.rotation = transform.rotation;
 
-                bullet.DirectionBullet();
-                //StartCoroutine(CanShoot());
+                    bullet.gameObject.SetActive(true);
+
+                    bullet.DirectionBullet();
+                    //StartCoroutine(CanShoot());
+                }
+                else
+                {
+                    Debug.Log("El objeto de la pool no tiene el componente Bullet.");
+                }
             }
-            else
-            {
-                Debug.Log("El objeto de la pool no tiene el componente Bullet.");
-            }
+            
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
