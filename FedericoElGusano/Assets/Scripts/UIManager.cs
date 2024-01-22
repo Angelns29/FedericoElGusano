@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -21,6 +22,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] public GameObject gameoverMenu;
     [Header("Settings")]
     [SerializeField] public GameObject settingsMenu;
+    [Header("ArmorCounter")]
+    [SerializeField] public GameObject armorCounter;
+    [Header("CoinsCounter")]
+    [SerializeField] public GameObject coinsCounter;
     public TMP_Dropdown settingsDropdown;
     public Slider musicSlider;
     public Slider sfxSlider;
@@ -30,6 +35,9 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        AudioSource[] audios = (AudioSource[])FindObjectsOfType(typeof(AudioSource));
+        musicSource = audios[0];
+        sfxSource = audios[1];
         if (instance == null)
         {
             instance = this;
@@ -38,7 +46,9 @@ public class UIManager : MonoBehaviour
         else Destroy(gameObject);
 
         Time.timeScale = 0f;
-
+    }
+    private void Start()
+    {
         musicSlider.value = musicSource.volume;
         sfxSlider.value = sfxSource.volume;
     }
@@ -52,7 +62,11 @@ public class UIManager : MonoBehaviour
         SceneManager.LoadScene(1);
         Destroy(gameObject);    
     }
-
+    public void ChangeToArchivements()
+    {
+        SceneManager.LoadScene(3);
+        Destroy(gameObject);
+    }
     #region pause
     public void ShowPauseMenu()
     {
@@ -97,11 +111,14 @@ public class UIManager : MonoBehaviour
     {
         tutorial.SetActive(false);
         pauseButton.SetActive(true);
+        armorCounter.SetActive(true);
+        coinsCounter.SetActive(true);
         Time.timeScale = 1f;
     }
     public void SetGameOver()
     {
         pauseButton.SetActive(false);
+        armorCounter.SetActive(false);
         gameoverMenu.SetActive(true);
     }
     public void Restart()
@@ -190,6 +207,20 @@ public class UIManager : MonoBehaviour
     public void SetFullscreen(bool isFullScreen)
     {
         Screen.fullScreen = isFullScreen;
+    }
+    public void ResetValuesArchivement()
+    {
+        PlayerPrefs.SetInt("avanzar", 0);
+        PlayerPrefs.SetInt("matar", 0);
+        PlayerPrefs.SetInt("monedas", 0);
+        PlayerPrefs.SetInt("muerte", 0);
+        for (int i = 1; i < 4; i++)
+        {
+            PlayerPrefs.SetInt("avanzar" + i, 0);
+            PlayerPrefs.SetInt("matar"+i, 0);
+            PlayerPrefs.SetInt("monedas"+i, 0);
+            PlayerPrefs.SetInt("muerte"+i, 0);
+        }
     }
     #endregion
 }
