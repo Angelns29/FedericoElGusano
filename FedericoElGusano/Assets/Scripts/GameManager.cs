@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class GameManager : MonoBehaviour
     public GameObject col2;
     public List<GameObject> cols;
     public List<GameObject> cols2;
+    [SerializeField] private List<GameObject> levelsPrefab = new List<GameObject>();
+    private GameObject level;
+    private  int lastBiome;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +25,7 @@ public class GameManager : MonoBehaviour
             cols.Add(Instantiate(col, new Vector2(-16 + i, positionVerticalPlataforma), Quaternion.identity));
             cols2.Add(Instantiate(col2, new Vector2(-15 + i, positionVerticalPlataforma2), Quaternion.identity));
         }
+        
     }
 
     // Update is called once per frame
@@ -41,5 +46,15 @@ public class GameManager : MonoBehaviour
             }
             cols2[i].transform.position = cols2[i].transform.position + new Vector3(-1, 0, 0) * Time.deltaTime * velocidad;
         }
+        StartCoroutine(RandomBiome());
+    }
+     
+    IEnumerator RandomBiome()
+    {
+        
+        if (level != null) Destroy(level);
+        int random = Random.Range(0, levelsPrefab.Count);
+        level = Instantiate(levelsPrefab[random]);
+        yield return new WaitForSeconds(10);
     }
 }
