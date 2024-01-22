@@ -132,6 +132,7 @@ public class ChatacterMovement : MonoBehaviour
                 _uiManager.SetGameOver();
                 Inventory.SaveCoins();
                 Inventory.actualArmor = Inventory.inventory.armor;
+            UpdateArchivements();
 
             }
             else
@@ -163,6 +164,7 @@ public class ChatacterMovement : MonoBehaviour
                 Inventory.SaveCoins();
                 Inventory.actualArmor = Inventory.inventory.armor;
                 //_audioManager.StopMusic();
+            UpdateArchivements();
 
             }
             else
@@ -179,7 +181,7 @@ public class ChatacterMovement : MonoBehaviour
     {
         yield return new WaitForSeconds(0.05f);
         Time.timeScale = 0;
-        _audioManager.StopMusic();
+        _audioManager.StartGameOverTheme();
     }
 
     public IEnumerator BecomeTemporarilyInvincible(bool _isInvincible)
@@ -195,5 +197,13 @@ public class ChatacterMovement : MonoBehaviour
         this.gameObject.layer = LayerMask.NameToLayer("Default");
         Debug.Log(gameObject.layer);
         Debug.Log("Player is no longer invincible!");
+    }
+    public void UpdateArchivements()
+    {
+        PlayerPrefs.SetInt("avanzar", PlayerPrefs.GetInt("avanzar") + 33);
+        PlayerPrefs.SetInt("matar", PlayerPrefs.GetInt("matar") + 3);
+        PlayerPrefs.SetInt("monedas", PlayerPrefs.GetInt("monedas") + 3);
+        PlayerPrefs.SetInt("muerte", PlayerPrefs.GetInt("muerte") + 1);
+
     }
 }
