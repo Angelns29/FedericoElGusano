@@ -62,11 +62,16 @@ public class Achievements : MonoBehaviour
     }
     public void GetReward()
     {
+        Shop shop = new Shop();
+        string fileShop = "shop_items.data";
+        shop = Persistence.Load(fileShop, shop);
         //Añadir Monedas al Personaje
         rewardCollected = true;
         Debug.Log("10 monedas");
         PlayerPrefs.SetInt(achievementType.ToString() + numType.ToString(), 1);
         imageBackgroundArchivement.color= Color.white;
         rewardButton.SetActive(false);
+        shop.coins += 10;
+        Persistence.Save(shop, fileShop);
     }
 }
