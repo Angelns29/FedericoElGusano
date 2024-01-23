@@ -22,10 +22,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] public GameObject gameoverMenu;
     [Header("Settings")]
     [SerializeField] public GameObject settingsMenu;
-    [Header("ArmorCounter")]
-    [SerializeField] public GameObject armorCounter;
-    [Header("CoinsCounter")]
-    [SerializeField] public GameObject coinsCounter;
+    [Header("HUD")]
+    [SerializeField] public GameObject hud;
+
     public TMP_Dropdown settingsDropdown;
     public Slider musicSlider;
     public Slider sfxSlider;
@@ -111,19 +110,19 @@ public class UIManager : MonoBehaviour
     {
         tutorial.SetActive(false);
         pauseButton.SetActive(true);
-        armorCounter.SetActive(true);
-        coinsCounter.SetActive(true);
+        hud.SetActive(true);
         Time.timeScale = 1f;
     }
     public void SetGameOver()
     {
         pauseButton.SetActive(false);
-        armorCounter.SetActive(false);
+        hud.SetActive(false);
         gameoverMenu.SetActive(true);
     }
     public void Restart()
     {
         SceneManager.LoadScene(1);
+        hud.SetActive(true);
         StartCoroutine(DesactivateGameOverUI());
     }
     IEnumerator DesactivateGameOverUI()
