@@ -31,7 +31,7 @@ public class ChatacterMovement : MonoBehaviour
 
     [SerializeField]private float invincibilityDurationSeconds;
     public bool _isInvicible;
-
+    public static bool gameOver;
     void Start()
     {
         _isInvicible= false;
@@ -43,6 +43,8 @@ public class ChatacterMovement : MonoBehaviour
         _audioManager = AudioManagerScript.instance;
         Inventory.actualArmor = Inventory.inventory.armor;
         Inventory.actualCharge = Inventory.inventory.charge;
+        gameOver = false;
+
     }
 
     // Update is called once per frame
@@ -132,7 +134,8 @@ public class ChatacterMovement : MonoBehaviour
                 _uiManager.SetGameOver();
                 Inventory.SaveCoins();
                 Inventory.actualArmor = Inventory.inventory.armor;
-            UpdateArchivements();
+                UpdateArchivements();
+                gameOver = true;
 
             }
             else
@@ -164,7 +167,8 @@ public class ChatacterMovement : MonoBehaviour
                 Inventory.SaveCoins();
                 Inventory.actualArmor = Inventory.inventory.armor;
                 //_audioManager.StopMusic();
-            UpdateArchivements();
+                UpdateArchivements();
+                gameOver = true;
 
             }
             else

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Analytics;
 using UnityEngine.XR;
 
 public class GameManager : MonoBehaviour
@@ -17,6 +18,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<GameObject> levelsPrefab = new List<GameObject>();
     private GameObject level;
     private  int lastBiome;
+    public Transform GeneratingZone;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +28,8 @@ public class GameManager : MonoBehaviour
             cols.Add(Instantiate(col, new Vector2(-16 + i, positionVerticalPlataforma), Quaternion.identity));
             cols2.Add(Instantiate(col2, new Vector2(-15 + i, positionVerticalPlataforma2), Quaternion.identity));
         }
-        
+        int random = Random.Range(0, levelsPrefab.Count);
+        level = Instantiate(levelsPrefab[random]);
     }
 
     // Update is called once per frame
@@ -46,15 +50,21 @@ public class GameManager : MonoBehaviour
             }
             cols2[i].transform.position = cols2[i].transform.position + new Vector3(-1, 0, 0) * Time.deltaTime * velocidad;
         }
-        StartCoroutine(RandomBiome());
+        
     }
-     
-    IEnumerator RandomBiome()
+    private void OnTriggerExit2D(Collider2D collision)
     {
         
-        if (level != null) Destroy(level);
+        if (collision.gameObject.CompareTag("EndZone"))
+        {
+            Destroy(level);
+            GenerateZone();
+        }
+    }
+
+    private void GenerateZone()
+    {
         int random = Random.Range(0, levelsPrefab.Count);
-        level = Instantiate(levelsPrefab[random]);
-        yield return new WaitForSeconds(10);
+        level = Instantiate(levelsPrefab[random], GeneratingZone.transform);
     }
 }

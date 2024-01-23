@@ -12,6 +12,7 @@ TagManager:
   - Plataforma
   - Bullet
   - EnemyMole
+  - EndZone
   layers:
   - Default
   - TransparentFX
