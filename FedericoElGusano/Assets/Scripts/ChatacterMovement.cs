@@ -145,8 +145,6 @@ public class ChatacterMovement : MonoBehaviour
                 Inventory.actualArmor--;
                 StartCoroutine(BecomeTemporarilyInvincible(_isInvicible));
             }
-            
-
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -177,10 +175,14 @@ public class ChatacterMovement : MonoBehaviour
                 Inventory.actualArmor--;
                 StartCoroutine(BecomeTemporarilyInvincible(_isInvicible));
             }
-            
+        }
 
+        if (collision.gameObject.CompareTag("Coin"))
+        {
+            Inventory.inventory.coins += 10;
         }
     }
+
     
     IEnumerator WaitForDeath()
     {
