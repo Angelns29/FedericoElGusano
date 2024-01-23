@@ -42,15 +42,16 @@ public class HudManager : MonoBehaviour
         if (armorIndex > federico.Inventory.actualArmor)
         {
             armorIndex--;
-            if (armorIndex == 0)
-            {
-                armorIndex = federico.Inventory.inventory.armor;
-                for (int i = 0; i < armorIndex; i++)
-                {
-                    armor[i].gameObject.SetActive(true);
-                }
-            }
             armor[armorIndex].gameObject.SetActive(false);
+        }
+    }
+
+    public void RestoreHud()
+    {
+        armorIndex = federico.Inventory.inventory.armor;
+        for (int i = 0; i < armorIndex; i++)
+        {
+            armor[i].gameObject.SetActive(true);
         }
     }
 }

@@ -24,6 +24,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] public GameObject settingsMenu;
     [Header("HUD")]
     [SerializeField] public GameObject hud;
+    public HudManager hudManager;
 
     public TMP_Dropdown settingsDropdown;
     public Slider musicSlider;
@@ -45,6 +46,7 @@ public class UIManager : MonoBehaviour
         else Destroy(gameObject);
 
         Time.timeScale = 0f;
+        hudManager = hud.GetComponent<HudManager>();
     }
     private void Start()
     {
@@ -111,6 +113,7 @@ public class UIManager : MonoBehaviour
         tutorial.SetActive(false);
         pauseButton.SetActive(true);
         hud.SetActive(true);
+        hudManager.RestoreHud();
         Time.timeScale = 1f;
     }
     public void SetGameOver()
@@ -123,6 +126,7 @@ public class UIManager : MonoBehaviour
     {
         SceneManager.LoadScene(1);
         hud.SetActive(true);
+        hudManager.RestoreHud();
         StartCoroutine(DesactivateGameOverUI());
     }
     IEnumerator DesactivateGameOverUI()
