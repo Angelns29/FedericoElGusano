@@ -27,6 +27,7 @@ public class InventoryManager : MonoBehaviour
         try { inventory = Persistence.Load(fileInventory, this.inventory); }
         catch
         {
+            inventory = new Inventory();
             this.inventory.coins = 0;
             this.inventory.armor = 0;
             this.inventory.weapon = 0;

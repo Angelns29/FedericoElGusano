@@ -124,10 +124,11 @@ public class UIManager : MonoBehaviour
     }
     public void Restart()
     {
+        hudManager.RestoreHud();
         SceneManager.LoadScene(1);
         hud.SetActive(true);
-        hudManager.RestoreHud();
         StartCoroutine(DesactivateGameOverUI());
+        Debug.Log("holauwu");
     }
     IEnumerator DesactivateGameOverUI()
     {

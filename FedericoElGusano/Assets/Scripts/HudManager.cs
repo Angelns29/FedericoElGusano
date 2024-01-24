@@ -16,42 +16,76 @@ public class HudManager : MonoBehaviour
     [Header("CoinsCounter")]
     [SerializeField] public GameObject coinsCounter;
     [Header("Charges")]
-    [SerializeField] public GameObject charges;
+    [SerializeField] public GameObject[] charges;
     [Header("Score")]
     [SerializeField] public GameObject Score;
 
     private int armorIndex;
+    private int chargesIndex;
 
-    public void Start()
+    public void Awake()
     {
+        federico = GameObject.FindGameObjectWithTag("Player").GetComponent<ChatacterMovement>();
+        armorIndex = federico.Inventory.actualArmor;
+        chargesIndex = federico.Inventory.actualCharge;
+        
+        for (int i = 0; i < armorIndex; i++)
+        {
+            armor[i].gameObject.SetActive(true);
+        }
+
         for (int i = 0; i < armor.Length; i++)
         {
             armor[i].gameObject.SetActive(false);
         }
 
-        federico = GameObject.FindGameObjectWithTag("Player").GetComponent<ChatacterMovement>();
-        armorIndex = federico.Inventory.actualArmor;
-        for (int i = 0; i < armorIndex; i++)
+        for (int i = 0; i < charges.Length; i++)
         {
-            armor[i].gameObject.SetActive(true);
+            charges[i].gameObject.SetActive(false);
         }
+        for (int i = 0; i < chargesIndex; i++)
+        {
+            charges[i].gameObject.SetActive(true);
+        }
+
+        
+    }
+    private void OnEnable()
+    {
+        ChatacterMovement.OnHit += UpdateArmorHud;
+        ChatacterMovement.Charge += UpdateChargeHud;
+    }
+    private void OnDisable()
+    {
+        ChatacterMovement.OnHit -= UpdateArmorHud;
+        ChatacterMovement.Charge -= UpdateChargeHud;
+
     }
 
-    public void Update()
+    public void UpdateArmorHud()
     {
-        if (armorIndex > federico.Inventory.actualArmor)
-        {
-            armorIndex--;
-            armor[armorIndex].gameObject.SetActive(false);
-        }
+        armorIndex--;
+        armor[armorIndex].gameObject.SetActive(false);
+    }
+
+    public void UpdateChargeHud()
+    {
+        chargesIndex--;
+        charges[chargesIndex].gameObject.SetActive(false);
     }
 
     public void RestoreHud()
     {
         armorIndex = federico.Inventory.inventory.armor;
+        chargesIndex = federico.Inventory.inventory.charge;
+        Debug.Log(armorIndex);
         for (int i = 0; i < armorIndex; i++)
         {
             armor[i].gameObject.SetActive(true);
+        }
+        for (int i = 0; i < chargesIndex; i++)
+        {
+            charges[i].gameObject.SetActive(true);
         }
     }
 }

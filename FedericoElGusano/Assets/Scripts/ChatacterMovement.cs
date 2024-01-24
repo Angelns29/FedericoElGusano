@@ -5,9 +5,12 @@ using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using System;
 
 public class ChatacterMovement : MonoBehaviour
 {
+    public static event Action OnHit = delegate { };
+    public static event Action Charge = delegate { };
     private Animator _animator;
     private Rigidbody2D _rb;
     private BoxCollider2D _collider;
@@ -106,6 +109,7 @@ public class ChatacterMovement : MonoBehaviour
         {
             if(Inventory.actualCharge > 0)
             {
+                Charge.Invoke();
                 Bullet bullet = BulletPool.Instance.GetBullet();
                 Inventory.actualCharge--;
                 _audioManager.PlaySFX(_audioManager.attack);
@@ -130,6 +134,7 @@ public class ChatacterMovement : MonoBehaviour
     {
         if ((collision.gameObject.CompareTag("Obstacle") || collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("EnemyMole")) && !_isInvicible)
         {
+            Debug.Log("HAOSJHASDJASOF1");
             if (Inventory.actualArmor.Equals(0))
             {
                 StartCoroutine(WaitForDeath());
@@ -144,6 +149,7 @@ public class ChatacterMovement : MonoBehaviour
                 Inventory.actualArmor--;
                 StartCoroutine(BecomeTemporarilyInvincible(_isInvicible));
             }
+
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -174,6 +180,7 @@ public class ChatacterMovement : MonoBehaviour
                 Inventory.actualArmor--;
                 StartCoroutine(BecomeTemporarilyInvincible(_isInvicible));
             }
+            OnHit.Invoke();
         }
 
         if (collision.gameObject.CompareTag("Coin"))
