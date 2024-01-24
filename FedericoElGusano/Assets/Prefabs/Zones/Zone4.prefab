@@ -171,7 +171,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 760469602506244865, guid: 05988a32ffd767f49a3e7989524bcc9a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.57
+      value: 7.62
       objectReference: {fileID: 0}
     - target: {fileID: 760469602506244865, guid: 05988a32ffd767f49a3e7989524bcc9a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -271,10 +271,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3628464830899857476, guid: ff896a6b80d8782459dbe826a202dd1e, type: 3}
-      propertyPath: _velocity
-      value: 4
-      objectReference: {fileID: 0}
+    - target: {fileID: 4296692841574042840, guid: ff896a6b80d8782459dbe826a202dd1e, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 230442c3666345041b4a227ba4198b15, type: 2}
     - target: {fileID: 6483866477965484680, guid: ff896a6b80d8782459dbe826a202dd1e, type: 3}
       propertyPath: m_Name
       value: Piedra3
@@ -307,7 +307,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7093409138998201705, guid: af01b27d6eff2194882aed8e6fdf32e2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.191538
+      value: -8.26
       objectReference: {fileID: 0}
     - target: {fileID: 7093409138998201705, guid: af01b27d6eff2194882aed8e6fdf32e2, type: 3}
       propertyPath: m_LocalPosition.z

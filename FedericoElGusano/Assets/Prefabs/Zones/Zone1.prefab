@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7107446153920929948}
   - component: {fileID: 8427846950598026563}
   - component: {fileID: 6438765876346332852}
+  - component: {fileID: 1913448973827498973}
   m_Layer: 0
   m_Name: NextInstance
   m_TagString: EndZone
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 2498017987169601293}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -24.62, y: -3.5, z: -0.8180685}
+  m_LocalPosition: {x: -17.83, y: -3.5, z: -0.8180685}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -119,6 +120,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1913448973827498973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2498017987169601293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ce387623f502354788f6fc713c5c933, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
 --- !u!1 &4632556326591201622
 GameObject:
   m_ObjectHideFlags: 0

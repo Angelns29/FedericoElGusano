@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3257451567019621496}
   - component: {fileID: 3019355158446872527}
   - component: {fileID: 7733422920714064047}
+  - component: {fileID: 7857518604235269883}
   m_Layer: 0
   m_Name: Topo
   m_TagString: EnemyMole
@@ -193,4 +194,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cce883fffb6d8ea43aadb09525f5fcdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _velocity: 4
+  _velocity: 3
+--- !u!114 &7857518604235269883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4103224016426266974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ce387623f502354788f6fc713c5c933, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3

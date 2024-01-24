@@ -5044,7 +5044,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1114702665}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 6200000, guid: 230442c3666345041b4a227ba4198b15, type: 2}
   m_IncludeLayers:
@@ -5986,7 +5986,7 @@ Transform:
   m_GameObject: {fileID: 1306101481}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -23.400928, y: -2.1894703, z: 0.9135395}
+  m_LocalPosition: {x: -23.400928, y: -2.31, z: 0.9135395}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8625,7 +8625,7 @@ Transform:
   m_GameObject: {fileID: 1655552390}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.161932, y: -1.06, z: 0.9135395}
+  m_LocalPosition: {x: -4.161932, y: -1.48, z: 0.9135395}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14231,7 +14231,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!222 &8244082737164674587
 CanvasRenderer:
   m_ObjectHideFlags: 0
