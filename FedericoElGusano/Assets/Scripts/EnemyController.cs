@@ -6,7 +6,7 @@ public class EnemyController : MonoBehaviour
 {
     [SerializeField] List<Transform> pathPoints;
     [SerializeField] private Animator animator;
-    float speed = 3;
+    float speed = 2.5f;
     float distance = 0.2f;
     byte nextpath = 0;
     private void Start()
@@ -19,7 +19,7 @@ public class EnemyController : MonoBehaviour
         if (Vector3.Distance(transform.position, pathPoints[nextpath].transform.position) < distance)
         {
             nextpath++;
-            if (nextpath >=pathPoints.Count) nextpath = 0;
+            if (nextpath ==pathPoints.Count) nextpath = 0;
             
         }
     }

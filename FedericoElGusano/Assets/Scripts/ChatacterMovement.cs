@@ -117,7 +117,6 @@ public class ChatacterMovement : MonoBehaviour
                     bullet.gameObject.SetActive(true);
 
                     bullet.DirectionBullet();
-                    //StartCoroutine(CanShoot());
                 }
                 else
                 {
