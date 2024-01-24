@@ -85,9 +85,9 @@ public class ShopManagerScript : MonoBehaviour
             case 4:
             case 5: inventory.weapon++;
                 break;
-            case 6:
+            case 6: inventory.charge++; break;
             case 7:
-            case 8: inventory.charge++;
+            case 8: inventory.charge +=2;
                 break;
         }
     }
