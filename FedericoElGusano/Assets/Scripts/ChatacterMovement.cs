@@ -11,6 +11,7 @@ public class ChatacterMovement : MonoBehaviour
 {
     public static event Action OnHit = delegate { };
     public static event Action Charge = delegate { };
+
     private Animator _animator;
     private Rigidbody2D _rb;
     private BoxCollider2D _collider;
@@ -160,7 +161,7 @@ public class ChatacterMovement : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Plataforma"))
         {
-            Inventory.inventory.coins++;
+           
             _isGroundedDown = false;
         }
         if ((collision.gameObject.CompareTag("Obstacle") || collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("EnemyMole")) && !_isInvicible)
@@ -182,7 +183,7 @@ public class ChatacterMovement : MonoBehaviour
             }
             OnHit.Invoke();
         }
-
+        //Conseguir monedas
         if (collision.gameObject.CompareTag("Coin"))
         {
             Inventory.inventory.coins += 10;
