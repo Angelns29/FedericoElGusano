@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     public List<GameObject> cols2;
     [SerializeField] private List<GameObject> levelsPrefab = new List<GameObject>();
     private GameObject level;
+    private GameObject levelBefore;
     private  int lastBiome;
     public Transform GeneratingZone;
 
@@ -57,9 +58,17 @@ public class GameManager : MonoBehaviour
         
         if (collision.gameObject.CompareTag("EndZone"))
         {
-            Destroy(level);
+            levelBefore = level;
+            StartCoroutine(DeleteLevelBefore());
             GenerateZone();
+            
         }
+    }
+
+    IEnumerator DeleteLevelBefore()
+    {
+        yield return new WaitForSeconds(3);
+        Destroy(levelBefore);
     }
 
     private void GenerateZone()
