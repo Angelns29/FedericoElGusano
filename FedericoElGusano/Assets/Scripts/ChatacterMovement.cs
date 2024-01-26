@@ -115,6 +115,8 @@ public class ChatacterMovement : MonoBehaviour
                 _audioManager.PlaySFX(_audioManager.attack);
                 if (bullet != null)
                 {
+                    _animator.SetBool("isAttacking", true);
+                    StartCoroutine(DesactivateAttack());
                     bullet.transform.position = transform.position;
                     bullet.transform.rotation = transform.rotation;
 
@@ -130,6 +132,13 @@ public class ChatacterMovement : MonoBehaviour
             
         }
     }
+
+    IEnumerator DesactivateAttack()
+    {
+        yield return new WaitForSeconds(1);
+        _animator.SetBool("isAttacking", false);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if ((collision.gameObject.CompareTag("Obstacle") || collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("EnemyMole")) && !_isInvicible)
