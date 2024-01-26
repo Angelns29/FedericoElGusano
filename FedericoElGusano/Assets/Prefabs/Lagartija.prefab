@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 5966218961180166044}
   - component: {fileID: 8933688135811870215}
   - component: {fileID: 7883789936152107003}
-  - component: {fileID: 7584892587566082214}
   - component: {fileID: 4644886343261804313}
+  - component: {fileID: 415283628406480450}
   m_Layer: 0
   m_Name: Lagartija
   m_TagString: Enemy
@@ -182,19 +182,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &7584892587566082214
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1015794323251557249}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87cbaeeb146c4bd46a066e1b1c7bbcb4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _paralaxSpeed: 10
 --- !u!114 &4644886343261804313
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,3 +195,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 8.5
+--- !u!114 &415283628406480450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1015794323251557249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f81d0c3e0e6548544abf63410039d50e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _velocity: 10

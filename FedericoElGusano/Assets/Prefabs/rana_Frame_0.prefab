@@ -216,6 +216,7 @@ GameObject:
   - component: {fileID: 1185620946474040230}
   - component: {fileID: 4160865296152644877}
   - component: {fileID: 4537109389046043968}
+  - component: {fileID: 8352998808158342467}
   m_Layer: 0
   m_Name: rana_Frame_0
   m_TagString: Enemy
@@ -398,6 +399,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &8352998808158342467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4753173394440525209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f81d0c3e0e6548544abf63410039d50e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _velocity: 3
 --- !u!1 &7972308603638117772
 GameObject:
   m_ObjectHideFlags: 0

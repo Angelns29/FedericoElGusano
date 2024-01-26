@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 4332073008608538926}
   - component: {fileID: 1724647411504721471}
   - component: {fileID: 3257451567019621496}
+  - component: {fileID: 3019355158446872527}
   - component: {fileID: 7733422920714064047}
-  - component: {fileID: 5507543889428730293}
+  - component: {fileID: 7857518604235269883}
   m_Layer: 0
   m_Name: Topo
   m_TagString: EnemyMole
@@ -154,6 +155,33 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.300298, y: 1.4}
   m_EdgeRadius: 0
+--- !u!50 &3019355158446872527
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4103224016426266974}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 6200000, guid: 230442c3666345041b4a227ba4198b15, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!114 &7733422920714064047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,7 +194,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cce883fffb6d8ea43aadb09525f5fcdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5507543889428730293
+  _velocity: 3
+--- !u!114 &7857518604235269883
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -175,7 +204,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4103224016426266974}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87cbaeeb146c4bd46a066e1b1c7bbcb4, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ce387623f502354788f6fc713c5c933, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _paralaxSpeed: 3
+  speed: 3

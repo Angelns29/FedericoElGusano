@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 7838767240963512642}
   - component: {fileID: 1949558398943825158}
   - component: {fileID: 8512965651698492903}
-  - component: {fileID: 8951916105527144440}
   - component: {fileID: 2229698052403682484}
+  - component: {fileID: 3548026683892291715}
   m_Layer: 0
   m_Name: Piedra1
   m_TagString: Obstacle
@@ -174,19 +174,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
---- !u!114 &8951916105527144440
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 905532920516014393}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87cbaeeb146c4bd46a066e1b1c7bbcb4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _paralaxSpeed: 3
 --- !u!61 &2229698052403682484
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -232,3 +219,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5757198, y: 1.1945318}
   m_EdgeRadius: 0
+--- !u!114 &3548026683892291715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 905532920516014393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f81d0c3e0e6548544abf63410039d50e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _velocity: 3

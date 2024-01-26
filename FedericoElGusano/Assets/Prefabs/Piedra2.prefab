@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5701705084130708694}
   - component: {fileID: 83735543093075093}
   - component: {fileID: 3385583937058712402}
-  - component: {fileID: 9199958845161913607}
+  - component: {fileID: 4701435601840523444}
   m_Layer: 0
   m_Name: Piedra2
   m_TagString: Obstacle
@@ -219,7 +219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
---- !u!114 &9199958845161913607
+--- !u!114 &4701435601840523444
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -228,7 +228,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1507541585023180864}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87cbaeeb146c4bd46a066e1b1c7bbcb4, type: 3}
+  m_Script: {fileID: 11500000, guid: f81d0c3e0e6548544abf63410039d50e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _paralaxSpeed: 3
+  _velocity: 3

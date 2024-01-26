@@ -5,6 +5,7 @@ using UnityEngine;
 public class ScriptTopo : MonoBehaviour
 {
     private Animator _animator;
+    [SerializeField] private float _velocity;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,7 +15,9 @@ public class ScriptTopo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        float xPosition = transform.position.x;
+        transform.position = new Vector3(xPosition - _velocity * ParallaxManager.instance.GetSpeed() * Time.deltaTime, transform.position.y, transform.position.z);
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

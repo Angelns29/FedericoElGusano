@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 8485061167206941178}
   - component: {fileID: 992154505456188996}
   - component: {fileID: 7946419572385160540}
-  - component: {fileID: 7164960825887832351}
   - component: {fileID: 892298587955701883}
+  - component: {fileID: 4186830718035903449}
   m_Layer: 0
   m_Name: Pajaro
   m_TagString: Enemy
@@ -108,19 +108,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &7164960825887832351
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1044962312468558145}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87cbaeeb146c4bd46a066e1b1c7bbcb4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _paralaxSpeed: 8
 --- !u!61 &892298587955701883
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -166,3 +153,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.6, y: 0.8922248}
   m_EdgeRadius: 0
+--- !u!114 &4186830718035903449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1044962312468558145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f81d0c3e0e6548544abf63410039d50e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _velocity: 8
