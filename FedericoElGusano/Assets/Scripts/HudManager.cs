@@ -26,7 +26,7 @@ public class HudManager : MonoBehaviour
     private int chargesIndex;
 
     //Score 
-    public int scoreCounter;
+    public static int scoreCounter;
 
     public void Awake()
     {
@@ -95,7 +95,7 @@ public class HudManager : MonoBehaviour
     }
     public void UpdateScoreHud()
     {
-        scoreCounter += 10;
+        scoreCounter += 1;
         Score.GetComponent<TextMeshProUGUI>().text = scoreCounter.ToString();
     }
 

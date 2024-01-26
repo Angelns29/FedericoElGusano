@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,6 +22,12 @@ public class GameManager : MonoBehaviour
     private  int lastBiome;
     public Transform GeneratingZone;
 
+
+    [NonSerialized] public static int coinsCollected;
+    [NonSerialized] public static int enemysDefeated;
+    [NonSerialized] public static int metresRun;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +36,7 @@ public class GameManager : MonoBehaviour
             cols.Add(Instantiate(col, new Vector2(-16 + i, positionVerticalPlataforma), Quaternion.identity));
             cols2.Add(Instantiate(col2, new Vector2(-15 + i, positionVerticalPlataforma2), Quaternion.identity));
         }
-        int random = Random.Range(0, levelsPrefab.Count);
+        int random = UnityEngine.Random.Range(0, levelsPrefab.Count);
         level = Instantiate(levelsPrefab[random]);
     }
 
@@ -73,7 +80,7 @@ public class GameManager : MonoBehaviour
 
     private void GenerateZone()
     {
-        int random = Random.Range(0, levelsPrefab.Count);
+        int random = UnityEngine.Random.Range(0, levelsPrefab.Count);
         level = Instantiate(levelsPrefab[random], GeneratingZone.transform);
     }
 }

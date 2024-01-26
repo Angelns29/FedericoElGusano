@@ -227,9 +227,9 @@ public class ChatacterMovement : MonoBehaviour
     }
     public void UpdateArchivements()
     {
-        PlayerPrefs.SetInt("avanzar", PlayerPrefs.GetInt("avanzar") + 33);
-        PlayerPrefs.SetInt("matar", PlayerPrefs.GetInt("matar") + 3);
-        PlayerPrefs.SetInt("monedas", PlayerPrefs.GetInt("monedas") + 3);
+        PlayerPrefs.SetInt("avanzar", PlayerPrefs.GetInt("avanzar") + (HudManager.scoreCounter/100));
+        PlayerPrefs.SetInt("matar", PlayerPrefs.GetInt("matar") + GameManager.enemysDefeated);
+        PlayerPrefs.SetInt("monedas", PlayerPrefs.GetInt("monedas") + GameManager.coinsCollected);
         PlayerPrefs.SetInt("muerte", PlayerPrefs.GetInt("muerte") + 1);
 
     }

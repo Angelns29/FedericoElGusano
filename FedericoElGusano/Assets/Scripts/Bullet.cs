@@ -47,6 +47,7 @@ public class Bullet : MonoBehaviour
         {
             _audioManager.PlaySFX(_audioManager.killEnemy);
             Destroy(collision.gameObject);
+            GameManager.enemysDefeated++;
         }
     }
     private void AnimateExplotion()
