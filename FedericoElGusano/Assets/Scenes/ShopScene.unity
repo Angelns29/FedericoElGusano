@@ -592,7 +592,7 @@ GameObject:
   - component: {fileID: 260811007}
   - component: {fileID: 260811006}
   m_Layer: 5
-  m_Name: titulo
+  m_Name: ShopTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1440,7 +1440,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2032868656}
   m_Direction: 0
   m_Value: 1
-  m_Size: 1
+  m_Size: 0.9992496
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3064,7 +3064,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 68.19666, y: -360.36}
+  m_AnchoredPosition: {x: 68.19667, y: -360.36}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &980837305
@@ -4179,7 +4179,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 400, y: -45.300087}
+  m_AnchoredPosition: {x: 399.99963, y: -45.300087}
   m_SizeDelta: {x: 408.59, y: 166.86}
   m_Pivot: {x: 0.5, y: 0.9}
 --- !u!114 &1441510375
@@ -7183,6 +7183,7 @@ GameObject:
   - component: {fileID: 2036894066}
   - component: {fileID: 2036894065}
   - component: {fileID: 2036894064}
+  - component: {fileID: 2036894067}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -7270,7 +7271,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
+  m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
