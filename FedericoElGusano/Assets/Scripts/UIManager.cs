@@ -32,6 +32,9 @@ public class UIManager : MonoBehaviour
     public AudioSource musicSource;
     public AudioSource sfxSource;
 
+    public static event Action scoreStart = delegate { };
+    public static event Action<bool> pauseStat = delegate { };
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -73,12 +76,16 @@ public class UIManager : MonoBehaviour
     {
         pauseButton.SetActive(false);
         pauseMenu.SetActive(true);
+        pauseStat.Invoke(false);
         Time.timeScale = 0f;
+
+
     }
     public void Resume()
     {
         pauseButton.SetActive(true);
         pauseMenu.SetActive(false);
+        pauseStat.Invoke(true);
         Time.timeScale = 1f;
     }
 
@@ -107,14 +114,17 @@ public class UIManager : MonoBehaviour
     {
         startMenu.SetActive(false);
         tutorial.SetActive(true);
+        
     }
     public void StartGame()
     {
         tutorial.SetActive(false);
         pauseButton.SetActive(true);
         hud.SetActive(true);
+        pauseStat.Invoke(true);
         hudManager.RestoreHud();
         Time.timeScale = 1f;
+        scoreStart.Invoke();
     }
     public void SetGameOver()
     {
@@ -127,8 +137,11 @@ public class UIManager : MonoBehaviour
         hudManager.RestoreHud();
         SceneManager.LoadScene(1);
         hud.SetActive(true);
+       // hudManager.ready = true;
         StartCoroutine(DesactivateGameOverUI());
         Debug.Log("holauwu");
+        scoreStart.Invoke();
+
     }
     IEnumerator DesactivateGameOverUI()
     {

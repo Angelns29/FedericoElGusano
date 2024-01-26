@@ -19,16 +19,25 @@ public class HudManager : MonoBehaviour
     [SerializeField] public GameObject[] charges;
     [Header("Score")]
     [SerializeField] public GameObject Score;
+    public bool ready;
 
+    //Indices para moverse en array
     private int armorIndex;
     private int chargesIndex;
 
+    //Score 
+    public int scoreCounter;
+
     public void Awake()
     {
+        //Ref de federico
+        ready = false;
         federico = GameObject.FindGameObjectWithTag("Player").GetComponent<ChatacterMovement>();
         armorIndex = federico.Inventory.actualArmor;
         chargesIndex = federico.Inventory.actualCharge;
+
         
+
         for (int i = 0; i < armorIndex; i++)
         {
             armor[i].gameObject.SetActive(true);
@@ -50,22 +59,44 @@ public class HudManager : MonoBehaviour
 
         
     }
+
+    private void Update()
+    {
+        if (ready)
+        {
+            UpdateScoreHud();
+        }
+    }
+
+    //Events para determinar armor y charges
     private void OnEnable()
     {
         ChatacterMovement.OnHit += UpdateArmorHud;
         ChatacterMovement.Charge += UpdateChargeHud;
+        UIManager.pauseStat += setPause;
+
+
     }
     private void OnDisable()
     {
         ChatacterMovement.OnHit -= UpdateArmorHud;
         ChatacterMovement.Charge -= UpdateChargeHud;
-
+        UIManager.pauseStat += setPause;
     }
 
     public void UpdateArmorHud()
     {
         armorIndex--;
         armor[armorIndex].gameObject.SetActive(false);
+    }
+    public void setPause(bool pause)
+    {
+        ready = pause;
+    }
+    public void UpdateScoreHud()
+    {
+        scoreCounter += 10;
+        Score.GetComponent<TextMeshProUGUI>().text = scoreCounter.ToString();
     }
 
     public void UpdateChargeHud()
@@ -87,5 +118,6 @@ public class HudManager : MonoBehaviour
         {
             charges[i].gameObject.SetActive(true);
         }
+        scoreCounter = 0;
     }
 }
