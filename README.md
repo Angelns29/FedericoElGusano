@@ -27,4 +27,9 @@
     - Z ---- Disparar
 
   ## <img width="15" height="10" src="https://i.pinimg.com/736x/4c/a5/e1/4ca5e18c26eecb9899187b0093a8c0cc.jpg"> Photos of the Game / <img width="15" height="10" src="https://www.astroninternacional.es/18829-large_default/bandera-espana-con-escudo-constitucional-exterior.jpg"> Imagenes del Juego:
-  
+  ![FedericoControls](https://github.com/AngelNavarreteSanchez/FedericoElGusano/assets/132052054/b5876bbc-050b-4b5e-8e62-c02f06d2ad85)
+  ![FedericoSettings](https://github.com/AngelNavarreteSanchez/FedericoElGusano/assets/132052054/ecd49e85-981d-402c-8268-c1202b58bcf3)
+  ![FedericoShop](https://github.com/AngelNavarreteSanchez/FedericoElGusano/assets/132052054/d080acae-4f2c-4abc-b5d1-b53430545400)
+  ![FedericoArchivements](https://github.com/AngelNavarreteSanchez/FedericoElGusano/assets/132052054/fc9d8a2c-ca77-4e58-9dbf-cefb7f5c844c)
+
+
