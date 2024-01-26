@@ -164,6 +164,12 @@ public class ChatacterMovement : MonoBehaviour
             }
 
         }
+        if (collision.gameObject.CompareTag("Coin"))
+        {
+            Inventory.inventory.coins++;
+            //GameManager.coinsCollected++;
+            Destroy(collision.gameObject);
+        }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -229,7 +235,7 @@ public class ChatacterMovement : MonoBehaviour
     {
         PlayerPrefs.SetInt("avanzar", PlayerPrefs.GetInt("avanzar") + (HudManager.scoreCounter/100));
         PlayerPrefs.SetInt("matar", PlayerPrefs.GetInt("matar") + GameManager.enemysDefeated);
-        PlayerPrefs.SetInt("monedas", PlayerPrefs.GetInt("monedas") + GameManager.coinsCollected);
+        PlayerPrefs.SetInt("monedas", PlayerPrefs.GetInt("monedas") + Inventory.inventory.coins);
         PlayerPrefs.SetInt("muerte", PlayerPrefs.GetInt("muerte") + 1);
 
     }

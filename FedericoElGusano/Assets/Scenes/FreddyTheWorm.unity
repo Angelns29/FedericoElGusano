@@ -4338,7 +4338,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.052689254, y: -0.04215157}
@@ -12967,7 +12967,6 @@ MonoBehaviour:
   - {fileID: 4096400376633670209}
   Score: {fileID: 2083493307337856213}
   ready: 0
-  scoreCounter: 0
 --- !u!224 &6205928867433268174
 RectTransform:
   m_ObjectHideFlags: 0
