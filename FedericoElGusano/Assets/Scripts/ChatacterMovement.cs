@@ -167,6 +167,7 @@ public class ChatacterMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Coin"))
         {
             Inventory.inventory.coins++;
+            Debug.Log(Inventory.inventory.coins);
             //GameManager.coinsCollected++;
             Destroy(collision.gameObject);
         }
@@ -201,11 +202,6 @@ public class ChatacterMovement : MonoBehaviour
                 StartCoroutine(BecomeTemporarilyInvincible(_isInvicible));
             }
             OnHit.Invoke();
-        }
-        //Conseguir monedas
-        if (collision.gameObject.CompareTag("Coin"))
-        {
-            Inventory.inventory.coins += 10;
         }
     }
 

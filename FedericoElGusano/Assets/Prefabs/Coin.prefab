@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5050113432968125953}
   - component: {fileID: 7969266358978464030}
   - component: {fileID: 4884079530935299501}
-  - component: {fileID: 2972531336355566017}
+  - component: {fileID: 7497688202798795965}
   m_Layer: 0
   m_Name: Coin
   m_TagString: Coin
@@ -96,7 +96,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 6410144237505759173}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 230442c3666345041b4a227ba4198b15, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -149,7 +149,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &2972531336355566017
+--- !u!114 &7497688202798795965
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -158,7 +158,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6410144237505759173}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f81d0c3e0e6548544abf63410039d50e, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ce387623f502354788f6fc713c5c933, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _velocity: 3
+  speed: 6
