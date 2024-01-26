@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
             cols2.Add(Instantiate(col2, new Vector2(-15 + i, positionVerticalPlataforma2), Quaternion.identity));
         }
         int random = UnityEngine.Random.Range(0, levelsPrefab.Count);
-        level = Instantiate(levelsPrefab[random]);
+        level = Instantiate(levelsPrefab[random],GeneratingZone.transform);
     }
 
     // Update is called once per frame

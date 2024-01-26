@@ -49,6 +49,7 @@ public class ChatacterMovement : MonoBehaviour
         Inventory.actualCharge = Inventory.inventory.charge;
         gameOver = false;
 
+        Debug.Log(PlayerPrefs.GetInt("monedas"));
     }
 
     // Update is called once per frame
@@ -151,9 +152,9 @@ public class ChatacterMovement : MonoBehaviour
             {
                 StartCoroutine(WaitForDeath());
                 _uiManager.SetGameOver();
+                UpdateArchivements();
                 Inventory.SaveCoins();
                 Inventory.actualArmor = Inventory.inventory.armor;
-                UpdateArchivements();
                 gameOver = true;
 
             }
@@ -161,8 +162,15 @@ public class ChatacterMovement : MonoBehaviour
             {
                 Inventory.actualArmor--;
                 StartCoroutine(BecomeTemporarilyInvincible(_isInvicible));
+                Destroy(collision.gameObject);
             }
 
+        }
+        if (collision.gameObject.CompareTag("Coin"))
+        {
+            Inventory.inventory.coins++;
+            HudManager.instance.UpdateCoins(Inventory.inventory.coins);
+            Destroy(collision.gameObject);
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -182,10 +190,10 @@ public class ChatacterMovement : MonoBehaviour
             {
                 StartCoroutine(WaitForDeath());
                 _uiManager.SetGameOver();
+                UpdateArchivements();
                 Inventory.SaveCoins();
                 Inventory.actualArmor = Inventory.inventory.armor;
                 //_audioManager.StopMusic();
-                UpdateArchivements();
                 gameOver = true;
 
             }
@@ -193,13 +201,9 @@ public class ChatacterMovement : MonoBehaviour
             {
                 Inventory.actualArmor--;
                 StartCoroutine(BecomeTemporarilyInvincible(_isInvicible));
+                Destroy(collision.gameObject);
             }
             OnHit.Invoke();
-        }
-        //Conseguir monedas
-        if (collision.gameObject.CompareTag("Coin"))
-        {
-            Inventory.inventory.coins += 10;
         }
     }
 
@@ -229,7 +233,7 @@ public class ChatacterMovement : MonoBehaviour
     {
         PlayerPrefs.SetInt("avanzar", PlayerPrefs.GetInt("avanzar") + (HudManager.scoreCounter/100));
         PlayerPrefs.SetInt("matar", PlayerPrefs.GetInt("matar") + GameManager.enemysDefeated);
-        PlayerPrefs.SetInt("monedas", PlayerPrefs.GetInt("monedas") + GameManager.coinsCollected);
+        PlayerPrefs.SetInt("monedas", PlayerPrefs.GetInt("monedas") + Inventory.inventory.coins);
         PlayerPrefs.SetInt("muerte", PlayerPrefs.GetInt("muerte") + 1);
 
     }
