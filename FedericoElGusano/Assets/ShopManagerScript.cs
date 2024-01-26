@@ -43,6 +43,7 @@ public class ShopManagerScript : MonoBehaviour
             shop.coins = 1000;
             Persistence.Save(shop,fileShop);
         }
+        Debug.Log(shop.coins);
         coinsTxt.text = shop.coins.ToString();
 
         
@@ -61,7 +62,7 @@ public class ShopManagerScript : MonoBehaviour
             shop.coins -= shop.shopItems[item.itemID].price;
             shop.shopItems[item.itemID].bought = true;
 
-            coinsTxt.text = "COINS: " + shop.coins.ToString();
+            coinsTxt.text = shop.coins.ToString();
             item.boughtTxt.text = "SOLD";
             Persistence.Save(inventory, fileinventory);
             Persistence.Save(shop, fileShop);

@@ -49,6 +49,7 @@ public class ChatacterMovement : MonoBehaviour
         Inventory.actualCharge = Inventory.inventory.charge;
         gameOver = false;
 
+        Debug.Log(PlayerPrefs.GetInt("monedas"));
     }
 
     // Update is called once per frame
@@ -151,9 +152,9 @@ public class ChatacterMovement : MonoBehaviour
             {
                 StartCoroutine(WaitForDeath());
                 _uiManager.SetGameOver();
+                UpdateArchivements();
                 Inventory.SaveCoins();
                 Inventory.actualArmor = Inventory.inventory.armor;
-                UpdateArchivements();
                 gameOver = true;
 
             }
@@ -161,14 +162,14 @@ public class ChatacterMovement : MonoBehaviour
             {
                 Inventory.actualArmor--;
                 StartCoroutine(BecomeTemporarilyInvincible(_isInvicible));
+                Destroy(collision.gameObject);
             }
 
         }
         if (collision.gameObject.CompareTag("Coin"))
         {
             Inventory.inventory.coins++;
-            Debug.Log(Inventory.inventory.coins);
-            //GameManager.coinsCollected++;
+            HudManager.instance.UpdateCoins(Inventory.inventory.coins);
             Destroy(collision.gameObject);
         }
     }
@@ -189,10 +190,10 @@ public class ChatacterMovement : MonoBehaviour
             {
                 StartCoroutine(WaitForDeath());
                 _uiManager.SetGameOver();
+                UpdateArchivements();
                 Inventory.SaveCoins();
                 Inventory.actualArmor = Inventory.inventory.armor;
                 //_audioManager.StopMusic();
-                UpdateArchivements();
                 gameOver = true;
 
             }
@@ -200,6 +201,7 @@ public class ChatacterMovement : MonoBehaviour
             {
                 Inventory.actualArmor--;
                 StartCoroutine(BecomeTemporarilyInvincible(_isInvicible));
+                Destroy(collision.gameObject);
             }
             OnHit.Invoke();
         }

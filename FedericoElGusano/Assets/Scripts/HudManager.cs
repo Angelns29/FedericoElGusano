@@ -10,11 +10,12 @@ using UnityEngine.UI;
 
 public class HudManager : MonoBehaviour
 {
+    public static HudManager instance;
     private ChatacterMovement federico;
     [Header("ArmorCounter")]
     [SerializeField] public GameObject[] armor;
     [Header("CoinsCounter")]
-    [SerializeField] public GameObject coinsCounter;
+    [SerializeField] public TMP_Text coinsCounter;
     [Header("Charges")]
     [SerializeField] public GameObject[] charges;
     [Header("Score")]
@@ -30,12 +31,19 @@ public class HudManager : MonoBehaviour
 
     public void Awake()
     {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else Destroy(gameObject);
+
         //Ref de federico
         ready = false;
         federico = GameObject.FindGameObjectWithTag("Player").GetComponent<ChatacterMovement>();
         armorIndex = federico.Inventory.actualArmor;
         chargesIndex = federico.Inventory.actualCharge;
-
+        coinsCounter.text = "0";
         
 
         for (int i = 0; i < armorIndex; i++)
@@ -119,5 +127,13 @@ public class HudManager : MonoBehaviour
             charges[i].gameObject.SetActive(true);
         }
         scoreCounter = 0;
+    }
+    public void UpdateCoins(float amount)
+    {
+        coinsCounter.text = amount.ToString();
+    }
+    public void RestartCoins()
+    {
+        coinsCounter.text = "0";
     }
 }
