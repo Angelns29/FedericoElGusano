@@ -72,10 +72,11 @@ public class ChatacterMovement : MonoBehaviour
             if (_isGroundedDown) StartCoroutine(DesactivateJumpFromUnderground());
             else StartCoroutine(DesactivateJump());
             _rb.gravityScale = 1;
+
         }
         if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S) && IsGrounded() && _isGroundedDown==false)
         {
-            if (_rb.gravityScale != 1) _rb.gravityScale = 1;
+            _rb.gravityScale = 1;
             _animator.SetBool("isJumping", true);
             ActivateTrigger();
             _audioManager.PlaySFX(_audioManager.jump);
@@ -83,11 +84,14 @@ public class ChatacterMovement : MonoBehaviour
             StartCoroutine(DesactivateJump());
         }
     }
+    public void ResetGravity()
+    {
+        _rb.gravityScale = 1;
+    }
     IEnumerator DesactivateJumpFromUnderground()
     {
         yield return new WaitForSeconds(0.8f);
         _animator.SetBool("isJumping", false);
-        _rb.gravityScale = 4;
     }
     IEnumerator DesactivateJump()
     {
@@ -145,6 +149,17 @@ public class ChatacterMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.CompareTag("Plataforma2")) _isGroundedDown = true;
+        else if (collision.gameObject.CompareTag("Plataforma")) _isGroundedDown = false;
+        if (collision.gameObject.CompareTag("GameOver"))
+        {
+            StartCoroutine(WaitForDeath());
+            _uiManager.SetGameOver();
+            UpdateArchivements();
+            Inventory.SaveCoins();
+            Inventory.actualArmor = Inventory.inventory.armor;
+            gameOver = true;
+        }
         if ((collision.gameObject.CompareTag("Obstacle") || collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("EnemyMole")) && !_isInvicible)
         {
             Debug.Log("HAOSJHASDJASOF1");
@@ -168,6 +183,7 @@ public class ChatacterMovement : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Coin"))
         {
+            _audioManager.PlaySFX(_audioManager.collectCoin);
             Inventory.inventory.coins++;
             HudManager.instance.UpdateCoins(Inventory.inventory.coins);
             Destroy(collision.gameObject);
@@ -175,14 +191,16 @@ public class ChatacterMovement : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Plataforma2"))
+        if (collision.gameObject.CompareTag("Plataforma2")) _isGroundedDown = true;
+        else if (collision.gameObject.CompareTag("Plataforma")) _isGroundedDown = false;
+        if (collision.gameObject.CompareTag("GameOver"))
         {
-            _isGroundedDown = true;
-        }
-        else if (collision.gameObject.CompareTag("Plataforma"))
-        {
-           
-            _isGroundedDown = false;
+            StartCoroutine(WaitForDeath());
+            _uiManager.SetGameOver();
+            UpdateArchivements();
+            Inventory.SaveCoins();
+            Inventory.actualArmor = Inventory.inventory.armor;
+            gameOver = true;
         }
         if ((collision.gameObject.CompareTag("Obstacle") || collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("EnemyMole")) && !_isInvicible)
         {
@@ -231,7 +249,7 @@ public class ChatacterMovement : MonoBehaviour
     }
     public void UpdateArchivements()
     {
-        PlayerPrefs.SetInt("avanzar", PlayerPrefs.GetInt("avanzar") + (HudManager.scoreCounter/100));
+        PlayerPrefs.SetInt("avanzar", PlayerPrefs.GetInt("avanzar") + (HudManager.scoreCounter/1000));
         PlayerPrefs.SetInt("matar", PlayerPrefs.GetInt("matar") + GameManager.enemysDefeated);
         PlayerPrefs.SetInt("monedas", PlayerPrefs.GetInt("monedas") + Inventory.inventory.coins);
         PlayerPrefs.SetInt("muerte", PlayerPrefs.GetInt("muerte") + 1);

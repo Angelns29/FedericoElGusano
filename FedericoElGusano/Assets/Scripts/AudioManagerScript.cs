@@ -41,11 +41,7 @@ public class AudioManagerScript : MonoBehaviour
 
     public void StartGame()
     {
-        if (musicSource.isPlaying)
-        {
-            musicSource.Stop();
-        }
-
+        musicSource.Stop();
         musicSource.clip = gameTheme;
         musicSource.Play();
     }

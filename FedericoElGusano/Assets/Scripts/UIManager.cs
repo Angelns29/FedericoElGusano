@@ -31,6 +31,7 @@ public class UIManager : MonoBehaviour
     public Slider sfxSlider;
     public AudioSource musicSource;
     public AudioSource sfxSource;
+    public AudioManagerScript music;
 
     public static event Action scoreStart = delegate { };
     public static event Action<bool> pauseStat = delegate { };
@@ -53,8 +54,18 @@ public class UIManager : MonoBehaviour
     }
     private void Start()
     {
+        AudioManagerScript[] audios = (AudioManagerScript[])FindObjectsOfType(typeof(AudioManagerScript));
+        music = audios[0];
         musicSlider.value = musicSource.volume;
         sfxSlider.value = sfxSource.volume;
+    }
+    public void SetGameMusic()
+    {
+        music.StartGame();
+    }
+    public void SetMenuMusic()
+    {
+        music.StartMenuTheme();
     }
     public void ChangeToShop()
     {
@@ -149,6 +160,10 @@ public class UIManager : MonoBehaviour
         gameoverMenu.SetActive(false);
         pauseButton.SetActive(true);
         Time.timeScale = 1f;
+    }
+    public void DisableHUD()
+    {
+        hud.SetActive(false);
     }
     public void JsonOrchestrator()
     {
