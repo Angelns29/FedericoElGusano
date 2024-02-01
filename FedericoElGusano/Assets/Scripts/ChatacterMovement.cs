@@ -74,13 +74,13 @@ public class ChatacterMovement : MonoBehaviour
             _rb.gravityScale = 1;
 
         }
-        if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S) && IsGrounded() && _isGroundedDown==false)
+        if ((Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S) )&& IsGrounded() && _isGroundedDown==false)
         {
             _rb.gravityScale = 1;
             _animator.SetBool("isJumping", true);
             ActivateTrigger();
             _audioManager.PlaySFX(_audioManager.jump);
-            Invoke(nameof(DesactivateTrigger), 0.6f);
+            Invoke(nameof(DesactivateTrigger), 0.4f);
             StartCoroutine(DesactivateJump());
         }
     }
@@ -98,6 +98,8 @@ public class ChatacterMovement : MonoBehaviour
         yield return new WaitForSeconds(0.6f);
         _animator.SetBool("isJumping", false);
         _rb.gravityScale = 4;
+        yield return new WaitForSeconds(0.2f);
+        _rb.gravityScale = 1;
     }
     void ActivateTrigger()
     {
@@ -162,7 +164,7 @@ public class ChatacterMovement : MonoBehaviour
         }
         if ((collision.gameObject.CompareTag("Obstacle") || collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("EnemyMole")) && !_isInvicible)
         {
-            Debug.Log("HAOSJHASDJASOF1");
+            
             if (Inventory.actualArmor.Equals(0))
             {
                 StartCoroutine(WaitForDeath());
@@ -177,6 +179,7 @@ public class ChatacterMovement : MonoBehaviour
             {
                 Inventory.actualArmor--;
                 StartCoroutine(BecomeTemporarilyInvincible(_isInvicible));
+                OnHit.Invoke();
                 Destroy(collision.gameObject);
             }
 
@@ -218,10 +221,11 @@ public class ChatacterMovement : MonoBehaviour
             else
             {
                 Inventory.actualArmor--;
-                StartCoroutine(BecomeTemporarilyInvincible(_isInvicible));
+                StartCoroutine(BecomeTemporarilyInvincible(_isInvicible));Debug.Log(collision.gameObject.name);
+                OnHit.Invoke();
                 Destroy(collision.gameObject);
             }
-            OnHit.Invoke();
+            
         }
     }
 
@@ -249,7 +253,7 @@ public class ChatacterMovement : MonoBehaviour
     }
     public void UpdateArchivements()
     {
-        PlayerPrefs.SetInt("avanzar", PlayerPrefs.GetInt("avanzar") + (HudManager.scoreCounter/1000));
+        PlayerPrefs.SetInt("avanzar", PlayerPrefs.GetInt("avanzar") + (HudManager.scoreCounter/100));
         PlayerPrefs.SetInt("matar", PlayerPrefs.GetInt("matar") + GameManager.enemysDefeated);
         PlayerPrefs.SetInt("monedas", PlayerPrefs.GetInt("monedas") + Inventory.inventory.coins);
         PlayerPrefs.SetInt("muerte", PlayerPrefs.GetInt("muerte") + 1);

@@ -19,12 +19,20 @@ public class Achievements : MonoBehaviour
     public bool isUnlocked {  get; private set; }
 
     public bool rewardCollected= false;
+    public GameObject completeTxt;
     private void Awake()
     {
         imageBackgroundArchivement = GetComponent<Image>();
     }
     private void Start()
     {
+        if (PlayerPrefs.GetInt(achievementType.ToString() + numType.ToString())==1)
+        {
+            imageBackgroundArchivement.color = Color.green;
+            if (slider != null) Destroy(slider.gameObject);
+
+            completeTxt.SetActive(true);
+        }
         CheckIfAchievementIsUnlocked();
         ChangeSlider();
     }
@@ -67,11 +75,14 @@ public class Achievements : MonoBehaviour
         shop = Persistence.Load(fileShop, shop);
         //Añadir Monedas al Personaje
         rewardCollected = true;
-        Debug.Log("10 monedas");
         PlayerPrefs.SetInt(achievementType.ToString() + numType.ToString(), 1);
         imageBackgroundArchivement.color= Color.white;
         rewardButton.SetActive(false);
         shop.coins += 10;
         Persistence.Save(shop, fileShop);
+
+        imageBackgroundArchivement.color = Color.green;
+        Destroy(slider.gameObject);
+        completeTxt.SetActive(true);
     }
 }

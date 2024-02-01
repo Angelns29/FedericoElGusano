@@ -367,7 +367,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4753173394440525209, guid: 69e04eac907f64d4dadf3d66cd1d82ca, type: 3}
       propertyPath: m_Name
-      value: rana_Frame_0
+      value: rana
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -393,7 +393,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 175217237594112339, guid: 15fc5797eca76644aa2a9992e6dee3ec, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.637396
+      value: -8.66
       objectReference: {fileID: 0}
     - target: {fileID: 175217237594112339, guid: 15fc5797eca76644aa2a9992e6dee3ec, type: 3}
       propertyPath: m_LocalPosition.z
@@ -579,7 +579,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 175217237594112339, guid: 15fc5797eca76644aa2a9992e6dee3ec, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.616992
+      value: -8.17
       objectReference: {fileID: 0}
     - target: {fileID: 175217237594112339, guid: 15fc5797eca76644aa2a9992e6dee3ec, type: 3}
       propertyPath: m_LocalPosition.z
@@ -889,7 +889,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8485061167206941178, guid: 1bd2c77a5a52ec242b7ba573eea4e5a1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14.663368
+      value: 19.55
       objectReference: {fileID: 0}
     - target: {fileID: 8485061167206941178, guid: 1bd2c77a5a52ec242b7ba573eea4e5a1, type: 3}
       propertyPath: m_LocalPosition.y

@@ -220,6 +220,7 @@ public class UIManager : MonoBehaviour
     public void ChangeToSettingsFromPause()
     {
         pauseMenu.SetActive(false);
+        hud.SetActive(false);
         settingsMenu.SetActive(true);
     }
     public void SetVolume(float volume)
